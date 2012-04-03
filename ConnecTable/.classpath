@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mt4j-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mt4j-desktop"/>
+	<classpathentry kind="lib" path="/mt4j-desktop/lib/core.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar_externes/gsvideo06pre.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar_externes/gstreamer-java-bin-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar_externes/PDFRenderer-0.9.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar_externes/chromiumBridge.jar"/>
+	<classpathentry kind="lib" path="/mt4j-desktop/lib/jogl/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="/mt4j-desktop/lib/jogl/opengl.jar"/>
+	<classpathentry kind="lib" path="/mt4j-desktop/lib/jogl/jogl.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar_externes/jna.jar"/>
+	<classpathentry kind="lib" path="/mt4j-desktop/examples/advanced/water/lib/waterScene.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

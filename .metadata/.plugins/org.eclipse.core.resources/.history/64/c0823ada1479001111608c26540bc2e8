@@ -1,0 +1,624 @@
+package org.mt4jx.components.visibleComponents.widgets;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import org.mt4j.MTApplication;
+import org.mt4j.components.MTComponent;
+import org.mt4j.components.clipping.Clip;
+import org.mt4j.components.visibleComponents.shapes.MTRoundRectangle;
+import org.mt4j.components.visibleComponents.widgets.MTTextField;
+import org.mt4j.components.visibleComponents.widgets.buttons.MTImageButton;
+import org.mt4j.components.visibleComponents.widgets.keyboard.ITextInputListener;
+import org.mt4j.components.visibleComponents.widgets.keyboard.MTKeyboard;
+import org.mt4j.input.inputProcessors.IGestureEventListener;
+import org.mt4j.input.inputProcessors.MTGestureEvent;
+import org.mt4j.input.inputProcessors.componentProcessors.tapProcessor.TapEvent;
+import org.mt4j.input.inputProcessors.componentProcessors.tapProcessor.TapProcessor;
+import org.mt4j.util.MT4jSettings;
+import org.mt4j.util.MTColor;
+import org.mt4j.util.font.FontManager;
+import org.mt4j.util.math.Vector3D;
+
+import processing.core.PApplet;
+
+import com.badlogic.gdx.awesomium.Awesomium;
+import com.badlogic.gdx.awesomium.JSArguments;
+import com.badlogic.gdx.awesomium.JSValue;
+import com.badlogic.gdx.awesomium.MouseButton;
+import com.badlogic.gdx.awesomium.Rect;
+import com.badlogic.gdx.awesomium.RenderBuffer;
+import com.badlogic.gdx.awesomium.URLFilteringMode;
+import com.badlogic.gdx.awesomium.WebView;
+import com.badlogic.gdx.awesomium.WebViewListener;
+
+public class MTWebBrowser extends MTRoundRectangle {
+	
+	private MTWebView mtWebView;
+	private MTKeyboard keyboard;
+	private MTTextField navbar;
+	private BrowserInputKeyboardListener browserInput;
+	private NavBarInputKeyboardListener navInput;
+	private MTComponent clippedChildContainer;
+	private MTImageButton closeButton;
+	private MTImageButton homeButton;
+	private MTImageButton stopButton;
+	private MTImageButton reloadButton;
+	private MTImageButton rightButton;
+	private MTImageButton leftButton;
+
+	public MTWebBrowser(PApplet pApplet, int width, int height) {
+//		super(pApplet, 0, 0, 0, width, height);
+		super(pApplet, 0,0,0, width, height, 25,25);
+		
+		clippedChildContainer = new MTComponent(pApplet);
+//		clippedChildContainer.setChildClip(new Clip(pApplet, 0,0, width, height));
+		MTRoundRectangle clipShape = new MTRoundRectangle(pApplet, 0,0,0, width, height, 25,25);
+		clipShape.setNoStroke(true);
+		clippedChildContainer.setChildClip(new Clip(clipShape));
+		this.addChild(clippedChildContainer);
+		
+		
+		int borderHorizontal = 25;
+		int borderTop = 100;
+		this.mtWebView = new MTWebView(pApplet, width-2*borderHorizontal, height - borderTop);
+		clippedChildContainer.addChild(mtWebView);
+		mtWebView.translate(new Vector3D(borderHorizontal, borderTop - borderHorizontal));
+		
+		float hOffset = 55;
+		float vOffset = 22.5f;
+		
+		leftButton = new MTImageButton(pApplet, pApplet.loadImage(MT4jSettings.DEFAULT_IMAGES_PATH + "browser" + MTApplication.separator + "arrow_left_32x32.png"));
+//		left.scale(2, 2, 1, left.getCenterPointLocal(), TransformSpace.LOCAL);
+		leftButton.addGestureListener(TapProcessor.class, new IGestureEventListener() {
+			@Override
+			public boolean processGestureEvent(MTGestureEvent ge) {
+				TapEvent te = (TapEvent)ge;
+				if (te.isTapped()){
+					mtWebView.getWebView().goToHistoryOffset(-1);
+				}
+				return false;
+			}
+		});
+		
+		clippedChildContainer.addChild(leftButton);
+		leftButton.setNoStroke(true);
+		leftButton.translate(new Vector3D(hOffset * 1, vOffset, 0));
+		
+		rightButton = new MTImageButton(pApplet, pApplet.loadImage(MT4jSettings.DEFAULT_IMAGES_PATH + "browser" + MTApplication.separator + "arrow_right_32x32.png"));
+//		right.scale(2, 2, 1, right.getCenterPointLocal(), TransformSpace.LOCAL);
+		rightButton.addGestureListener(TapProcessor.class, new IGestureEventListener() {
+			@Override
+			public boolean processGestureEvent(MTGestureEvent ge) {
+				TapEvent te = (TapEvent)ge;
+				if (te.isTapped()){
+					mtWebView.getWebView().goToHistoryOffset(1);
+				}
+				return false;
+			}
+		});
+		clippedChildContainer.addChild(rightButton);
+		rightButton.setNoStroke(true);
+		rightButton.translate(new Vector3D(hOffset * 2, vOffset, 0));
+		
+		reloadButton = new MTImageButton(pApplet, pApplet.loadImage(MT4jSettings.DEFAULT_IMAGES_PATH + "browser" + MTApplication.separator + "loop_32x32.png"));
+//		reload.scale(2, 2, 1, reload.getCenterPointLocal(), TransformSpace.LOCAL);
+		reloadButton.addGestureListener(TapProcessor.class, new IGestureEventListener() {
+			@Override
+			public boolean processGestureEvent(MTGestureEvent ge) {
+				TapEvent te = (TapEvent)ge;
+				if (te.isTapped()){
+					mtWebView.getWebView().reload();
+				}
+				return false;
+			}
+		});
+		clippedChildContainer.addChild(reloadButton);
+		reloadButton.setNoStroke(true);
+		reloadButton.translate(new Vector3D(hOffset * 3, vOffset, 0));
+		
+		
+		stopButton = new MTImageButton(pApplet, pApplet.loadImage(MT4jSettings.DEFAULT_IMAGES_PATH + "browser" + MTApplication.separator + "minus_alt_32x32.png"));
+//		stop.scale(2, 2, 1, stop.getCenterPointLocal(), TransformSpace.LOCAL);
+		stopButton.addGestureListener(TapProcessor.class, new IGestureEventListener() {
+			@Override
+			public boolean processGestureEvent(MTGestureEvent ge) {
+				TapEvent te = (TapEvent)ge;
+				if (te.isTapped()){
+					mtWebView.getWebView().stop();
+				}
+				return false;
+			}
+		});
+		clippedChildContainer.addChild(stopButton);
+		stopButton.setNoStroke(true);
+		stopButton.translate(new Vector3D(hOffset * 4, vOffset, 0));
+		
+		homeButton = new MTImageButton(pApplet, pApplet.loadImage(MT4jSettings.DEFAULT_IMAGES_PATH + "browser" + MTApplication.separator + "home_32x32.png"));
+//		home.scale(2, 2, 1, home.getCenterPointLocal(), TransformSpace.LOCAL);
+		homeButton.addGestureListener(TapProcessor.class, new IGestureEventListener() {
+			@Override
+			public boolean processGestureEvent(MTGestureEvent ge) {
+				TapEvent te = (TapEvent)ge;
+				if (te.isTapped()){
+					mtWebView.loadURL("http://www.google.fr", "", "", "");
+				}
+				return false;
+			}
+		});
+		clippedChildContainer.addChild(homeButton);
+		homeButton.setNoStroke(true);
+		homeButton.translate(new Vector3D(hOffset * 5, vOffset, 0));
+		
+		closeButton = new MTImageButton(pApplet, pApplet.loadImage(MT4jSettings.DEFAULT_IMAGES_PATH + "browser" + MTApplication.separator + "x_alt_32x32.png"));
+//		close(2, 2, 1, stop.getCenterPointLocal(), TransformSpace.LOCAL);
+		closeButton.addGestureListener(TapProcessor.class, new IGestureEventListener() {
+			@Override
+			public boolean processGestureEvent(MTGestureEvent ge) {
+				TapEvent te = (TapEvent)ge;
+				if (te.isTapped()){
+					destroy();
+				}
+				return false;
+			}
+		});
+		clippedChildContainer.addChild(closeButton);
+		closeButton.setNoStroke(true);
+		closeButton.translate(new Vector3D(hOffset * 13.5f, vOffset, 0));
+		
+		
+		//Add a keyboard
+		keyboard = new BKeyboard(pApplet);
+		keyboard.setFillColor(new MTColor(80,80,80,130));
+		keyboard.setStrokeColor(MTColor.BLACK);
+		this.addChild(keyboard);
+//		keyboard.translate(new Vector3D(50,height-height/4f));
+		keyboard.setPositionRelativeToParent(getCenterPointLocal());
+		keyboard.setVisible(false);
+		browserInput = new BrowserInputKeyboardListener();
+		keyboard.addTextInputListener(browserInput);
+
+		
+		//add we weblistener //INFO we can apparantly only set 1 listener overall
+		getWebView().setListener(new WebViewListener() {
+			@Override
+			public void onWebViewCrashed() {}
+			@Override
+			public void onRequestMove(int x, int y) {}
+			@Override
+			public void onRequestDownload(String url) {			}
+			@Override
+			public void onReceiveTitle(String title, String frameName) {
+			}
+			@Override
+			public void onPluginCrashed(String pluginName) {
+			}
+			@Override
+			public void onOpenExternalLink(String url, String source) {
+				getWebView().loadURL(url, "", "", "");
+			}
+			@Override
+			public void onGetPageContents(String url, String contents) {
+			}
+			@Override
+			public void onFinishLoading() {
+			}
+			@Override
+			public void onDOMReady() {
+			}
+			@Override
+			public void onChangeTooltip(String tooltip) {
+			}
+			@Override
+			public void onChangeTargetURL(String url) {
+			}
+			@Override
+			public void onChangeKeyboardFocus(boolean isFocused) {
+				if (isFocused){
+					keyboard.setVisible(true);
+					keyboard.removeTextInputListener(navInput);
+					keyboard.addTextInputListener(browserInput);
+				}
+			}
+			@Override
+			public void onChangeCursor(int cursor) {
+			}
+			@Override
+			public void onCallback(String objectName, String callbackName,	JSArguments args) {
+			}
+			@Override
+			public void onBeginNavigation(String url, String frameName) {
+				navbar.setText(url);
+			}
+			@Override
+			public void onBeginLoading(String url, String frameName, int statusCode, String mimeType) {
+			}
+		});
+		
+		this.navInput = new NavBarInputKeyboardListener();
+		
+		navbar = new MTTextField(pApplet, 0, 0, 250, 25, FontManager.getInstance().getDefaultFont(pApplet));
+		navbar.unregisterAllInputProcessors();
+		navbar.removeAllGestureEventListeners();
+		navbar.setText("http://www.google.fr");
+		navbar.translate(new Vector3D(hOffset*6, 25));
+		clippedChildContainer.addChild(navbar);
+		
+		navbar.registerInputProcessor(new TapProcessor(pApplet));
+		navbar.addGestureListener(TapProcessor.class, new IGestureEventListener() {
+			@Override
+			public boolean processGestureEvent(MTGestureEvent ge) {
+				TapEvent te = (TapEvent)ge;
+				if (te.isTapped()){
+					keyboard.setVisible(true);
+					navbar.setEnableCaret(true);
+					keyboard.removeTextInputListener(browserInput);
+					keyboard.addTextInputListener(navInput);
+					//getWebView().unfocus();
+				}
+				return false;
+			}
+		});
+		
+		
+		this.setDepthBufferDisabled(true); //To prevent z-fighting
+		
+	}
+	
+	
+	private int getModifiers(String unicode) {
+		int modifiers = 0;
+		if(unicode.equals("shift")){
+			modifiers |= Awesomium.AWE_MOD_SHIFT_KEY;
+		}
+		return modifiers;
+	}
+	
+	public MTWebView getWebView(){
+		return mtWebView;
+	}
+	
+	private class NavBarInputKeyboardListener implements ITextInputListener{
+		@Override
+		public void setText(String text) {
+			navbar.setText(text);	
+		}
+		
+		@Override
+		public void removeLastCharacter() {
+			navbar.removeLastCharacter();
+		}
+
+		@Override
+		public void clear() {
+			navbar.clear();
+		}
+		
+		@Override
+		public void appendText(String text) {
+			navbar.appendText(text);	
+		}
+		
+		@Override
+		public void appendCharByUnicode(String unicode) {
+			if (unicode.equals("\n")){
+				navbar.setEnableCaret(false);
+				getWebView().loadURL(navbar.getText(), "", "", "");
+				keyboard.setVisible(false);
+			}else{
+				navbar.appendCharByUnicode(unicode);
+			}
+		}
+	}
+	
+	private class BrowserInputKeyboardListener implements ITextInputListener{
+		@Override
+		public void setText(String text) {	}
+		
+		@Override
+		public void removeLastCharacter() {
+			if (isVisible()){
+				getWebView().injectKeyDown(Awesomium.AWE_AK_BACK, getModifiers(""), false);
+				getWebView().injectKeyUp(Awesomium.AWE_AK_BACK, getModifiers(""), false);
+			}else{
+				getWebView().goToHistoryOffset(-1);
+			}
+		}
+
+		@Override
+		public void clear() {	}
+		
+		@Override
+		public void appendText(String text) {	}
+		
+		@Override
+		public void appendCharByUnicode(String unicode) {
+			//System.out.println(unicode);
+			if(unicode.equals("shift")){
+				getWebView().injectKeyDown(Awesomium.AWE_AK_SHIFT, getModifiers(unicode), false);
+				getWebView().injectKeyUp(Awesomium.AWE_AK_SHIFT, getModifiers(unicode), false);
+			}
+			else if(unicode.equals("\n")){
+				getWebView().injectKeyDown(Awesomium.AWE_AK_RETURN, getModifiers(unicode), false);
+				getWebView().injectKeyUp(Awesomium.AWE_AK_RETURN, getModifiers(unicode), false);
+				keyboard.setVisible(false);
+			}
+			else{
+				char chr = unicode.charAt(0);
+				//boolean upper = Character.isUpperCase(chr);
+				getWebView().injectKeyTyped(chr);
+			}
+		}
+	}
+	
+	private class BKeyboard extends MTKeyboard{
+		public BKeyboard(PApplet pApplet) {
+			super(pApplet);
+		}
+		
+		@Override
+		protected void onCloseButtonClicked() {
+			this.setVisible(false);
+		}
+	}
+	
+	
+	@Override
+	public void setSizeLocal(float width, float height) {
+		super.setSizeLocal(width, height);
+		if (MT4jSettings.getInstance().isOpenGlMode() && clippedChildContainer.getChildClip() != null && clippedChildContainer.getChildClip().getClipShape() instanceof MTRoundRectangle){ 
+			MTRoundRectangle clipRect = (MTRoundRectangle)clippedChildContainer.getChildClip().getClipShape();
+			//clipRect.setVertices(Vertex.getDeepVertexArrayCopy(this.getVerticesLocal()));
+			clipRect.setVertices(this.getVerticesLocal());
+		}
+	}
+
+
+	public void setZoom(int percent) {
+		mtWebView.setZoom(percent);
+	}
+
+
+	public void resetZoom() {
+		mtWebView.resetZoom();
+	}
+
+
+	public void loadURL(String url, String frameName, String username,
+			String password) {
+		mtWebView.loadURL(url, frameName, username, password);
+	}
+
+
+	public void loadHTML(String html, String frameName) {
+		mtWebView.loadHTML(html, frameName);
+	}
+
+
+	public void loadFile(String file, String frameName) {
+		mtWebView.loadFile(file, frameName);
+	}
+
+
+	public void addURLFilter(String filter) {
+		mtWebView.addURLFilter(filter);
+	}
+
+
+	public void callJavascriptFunction(String object, String function,
+			JSArguments args, String frameName) {
+		mtWebView.callJavascriptFunction(object, function, args, frameName);
+	}
+
+
+	public void clearAllURLFilters() {
+		mtWebView.clearAllURLFilters();
+	}
+
+
+	public void copy() {
+		mtWebView.copy();
+	}
+
+
+	public void createObject(String objectName) {
+		mtWebView.createObject(objectName);
+	}
+
+
+	public void cut() {
+		mtWebView.cut();
+	}
+
+
+	public void destroyObject(String objectName) {
+		mtWebView.destroyObject(objectName);
+	}
+
+
+	public void executeJavascript(String javascript, String frameName) {
+		mtWebView.executeJavascript(javascript, frameName);
+	}
+
+
+	public JSValue executeJavascriptWithResult(String javascript,
+			String frameName, int timeoutMS) {
+		return mtWebView.executeJavascriptWithResult(javascript, frameName,
+				timeoutMS);
+	}
+
+
+	public JSValue executeJavascriptWithResult(String javascript,
+			String frameName) {
+		return mtWebView.executeJavascriptWithResult(javascript, frameName);
+	}
+
+
+	public void focus() {
+		mtWebView.focus();
+	}
+
+
+	public Rect getDirtyBounds() {
+		return mtWebView.getDirtyBounds();
+	}
+
+
+	public boolean isDirty() {
+		return mtWebView.isDirty();
+	}
+
+
+	public boolean isLoadingPage() {
+		return mtWebView.isLoadingPage();
+	}
+
+
+	public void paste() {
+		mtWebView.paste();
+	}
+
+
+	public void pauseRendering() {
+		mtWebView.pauseRendering();
+	}
+
+
+	public RenderBuffer render() {
+		return mtWebView.render();
+	}
+
+
+	public void resize(int width, int height, boolean waitForRepaint,
+			int repaintTimeoutMS) {
+		mtWebView.resize(width, height, waitForRepaint, repaintTimeoutMS);
+	}
+
+
+	public void resumeRendering() {
+		mtWebView.resumeRendering();
+	}
+
+
+	public void setObjectCallback(String objectName, String callbackName) {
+		mtWebView.setObjectCallback(objectName, callbackName);
+	}
+
+
+	public void setObjectProperty(String objectName, String propName,
+			JSValue value) {
+		mtWebView.setObjectProperty(objectName, propName, value);
+	}
+
+
+	public void setURLFilteringMode(URLFilteringMode mode) {
+		mtWebView.setURLFilteringMode(mode);
+	}
+
+
+	public void stop() {
+		mtWebView.stop();
+	}
+
+
+	public void unfocus() {
+		mtWebView.unfocus();
+	}
+
+
+	public void injectKeyDown(int virtualKeyCode, int modifiers,
+			boolean isSystemKey) {
+		mtWebView.injectKeyDown(virtualKeyCode, modifiers, isSystemKey);
+	}
+
+
+	public void injectKeyTyped(char character) {
+		mtWebView.injectKeyTyped(character);
+	}
+
+
+	public void injectKeyUp(int virtualKeyCode, int modifiers,
+			boolean isSystemKey) {
+		mtWebView.injectKeyUp(virtualKeyCode, modifiers, isSystemKey);
+	}
+
+
+	public void injectMouseDown(MouseButton button) {
+		mtWebView.injectMouseDown(button);
+	}
+
+
+	public void injectMouseMove(int x, int y) {
+		mtWebView.injectMouseMove(x, y);
+	}
+
+
+	public void injectMouseUp(MouseButton button) {
+		mtWebView.injectMouseUp(button);
+	}
+
+
+	public void injectMouseWheel(int scrollAmount) {
+		mtWebView.injectMouseWheel(scrollAmount);
+	}
+
+
+	public MTImageButton getCloseButton() {
+		return closeButton;
+	}
+
+
+	public MTImageButton getHomeButton() {
+		return homeButton;
+	}
+
+
+	public MTImageButton getStopButton() {
+		return stopButton;
+	}
+
+
+	public MTImageButton getReloadButton() {
+		return reloadButton;
+	}
+
+
+	public MTImageButton getRightButton() {
+		return rightButton;
+	}
+
+
+	public MTImageButton getLeftButton() {
+		return leftButton;
+	}
+	
+	
+	
+	
+	
+	
+//	@Override
+//	public void setWidthLocal(float width) {
+//		super.setWidthLocal(width);
+//		if (MT4jSettings.getInstance().isOpenGlMode() && clippedChildContainer.getChildClip() != null && clippedChildContainer.getChildClip().getClipShape() instanceof MTRectangle){ 
+//			MTRectangle clipRect = (MTRectangle)clippedChildContainer.getChildClip().getClipShape();
+//			//clipRect.setVertices(Vertex.getDeepVertexArrayCopy(this.getVerticesLocal()));
+//			clipRect.setVertices(this.getVerticesLocal());
+//		}
+//	}
+//	
+//	@Override
+//	public void setHeightLocal(float height) {
+//		super.setHeightLocal(height);
+//		if (MT4jSettings.getInstance().isOpenGlMode() && clippedChildContainer.getChildClip() != null && clippedChildContainer.getChildClip().getClipShape() instanceof MTRectangle){ 
+//			MTRectangle clipRect = (MTRectangle)clippedChildContainer.getChildClip().getClipShape();
+//			//clipRect.setVertices(Vertex.getDeepVertexArrayCopy(this.getVerticesLocal()));
+//			clipRect.setVertices(this.getVerticesLocal());
+//		}
+//	}
+	
+	
+	
+	
+
+}

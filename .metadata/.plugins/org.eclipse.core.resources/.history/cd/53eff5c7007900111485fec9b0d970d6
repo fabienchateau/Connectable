@@ -1,0 +1,10 @@
+{
+   "extdesc": {
+      "description": "extension description",
+      "message": "Increase performance and video formats for your HTML5 <video>"
+   },
+   "extname": {
+      "description": "extension name",
+      "message": "DivX Plus Web Player HTML5 <video>"
+   }
+}

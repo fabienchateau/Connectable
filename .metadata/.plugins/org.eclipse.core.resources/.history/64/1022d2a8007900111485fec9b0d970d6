@@ -1,0 +1,32 @@
+{
+   "": "",
+   "StartupDNSPrefetchList": [ "clients1.google.fr", "www.google.fr" ],
+   "intl": {
+      "app_locale": "en-US"
+   },
+   "uninstall_metrics": {
+      "launch_count": "5",
+      "uptime_sec": "15"
+   },
+   "user_experience_metrics": {
+      "session_id": 4,
+      "stability": {
+         "breakpad_registration_fail": 0,
+         "breakpad_registration_ok": 0,
+         "crash_count": 0,
+         "debugger_not_present": 0,
+         "debugger_present": 0,
+         "exited_cleanly": true,
+         "incomplete_session_end_count": 0,
+         "last_timestamp_sec": "1332954621",
+         "launch_count": 5,
+         "launch_time_sec": "1332954621",
+         "page_load_count": 0,
+         "renderer_crash_count": 0,
+         "renderer_hang_count": 0,
+         "session_end_completed": true,
+         "stats_buildtime": "1289687394",
+         "stats_version": "1, 6, 0, 3-devel"
+      }
+   }
+}

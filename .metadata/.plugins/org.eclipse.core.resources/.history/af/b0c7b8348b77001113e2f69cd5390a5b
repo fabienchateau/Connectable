@@ -1,0 +1,10 @@
+package ShellCirculaire;
+
+import org.mt4j.sceneManagement.Iscene;
+
+public interface ICreateScene {
+
+	public Iscene getNewScene();
+	
+	public String getTitle();
+}

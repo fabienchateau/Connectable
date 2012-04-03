@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Vignettes.StartVignettesScene"/>
+<fullyQualifiedTypeName name="Vignettes.VignettesScene"/>
+<fullyQualifiedTypeName name="org.mt4j.components.visibleComponents.widgets.MTCircularList"/>
+<fullyQualifiedTypeName name="processing.core.PImage"/>
+<fullyQualifiedTypeName name="org.mt4j.components.visibleComponents.shapes.MTRectangle"/>
+<fullyQualifiedTypeName name="org.mt4j.util.MT4jSettings"/>
+<fullyQualifiedTypeName name="org.mt4j.components.visibleComponents.shapes.MTRectangle.PositionAnchor"/>
+<fullyQualifiedTypeName name="org.mt4j.util.math.Vertex"/>
+<fullyQualifiedTypeName name="Navigateur.MTBrowserScene"/>
+<fullyQualifiedTypeName name="org.mt4jx.components.visibleComponents.widgets.MTBrowserScene"/>
+<fullyQualifiedTypeName name="org.mt4jx.components.visibleComponents.widgets.MTWebBrowser"/>
+<fullyQualifiedTypeName name="processing.core.PApplet"/>
+<fullyQualifiedTypeName name="java.applet.Applet"/>
+<fullyQualifiedTypeName name="org.mt4jx.components.visibleComponents.widgets.MTPdf"/>
+<fullyQualifiedTypeName name="org.mt4j.util.font.FontManager"/>
+<fullyQualifiedTypeName name="org.mt4j.components.visibleComponents.widgets.MTTextArea"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,186 @@
+package org.mt4j.input.gestureAction;
+
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+import org.mt4j.MTApplication;
+import org.mt4j.components.MTComponent;
+import org.mt4j.components.interfaces.IMTComponent3D;
+import org.mt4j.components.interfaces.IMTController;
+import org.mt4j.input.inputProcessors.IGestureEventListener;
+import org.mt4j.input.inputProcessors.MTGestureEvent;
+import org.mt4j.input.inputProcessors.componentProcessors.dragProcessor.DragEvent;
+import org.mt4j.util.math.ToolsMath;
+import org.mt4j.util.math.Vector3D;
+
+public class InertiaCircuDragAction implements IGestureEventListener {
+
+private float limit;
+private float damping;
+private int integrationTime;
+private MTApplication app;
+float screenHeight;
+    float screenWidth;
+    Vector3D center;
+    Vector3D org;
+    float maxDist;
+public InertiaCircuDragAction(MTApplication mtApp){
+// this(120, 0.85f, 17);
+this(120, 0.85f, 200);
+app = mtApp;
+screenHeight = app.height;
+   screenWidth = app.width;
+   center = new Vector3D(screenWidth / 2, screenHeight / 2);
+   org = new Vector3D(screenWidth / 2, screenHeight);
+   maxDist = center.distance(new Vector3D(screenWidth / 2, screenHeight));
+}
+
+public InertiaCircuDragAction(int integrationTime, float damping, float maxVelocityLength){
+this.integrationTime = integrationTime;
+this.limit = maxVelocityLength;
+this.damping = damping;
+}
+
+public boolean processGestureEvent(MTGestureEvent ge) {
+	IMTComponent3D t = ge.getTargetComponent();
+	if (t instanceof MTComponent) {
+		MTComponent comp = (MTComponent) t;
+		DragEvent de = (DragEvent)ge;
+		IMTController oldController;
+	   
+		Vector3D orgTo = de.getTo();
+		Vector3D orgFrom = de.getFrom();
+		Vector3D mvTo = new Vector3D(orgTo.x - center.x, orgTo.y-center.y);
+		Vector3D mvFrom = new Vector3D(orgFrom.x - center.x, orgFrom.y-center.y);
+		float distFrom = center.distance(orgFrom);
+//		System.out.println("\n valeur du from"+mvFrom.x+" || "+mvFrom.y+"\n");
+		float distTo = center.distance(orgTo);
+		float scale = distTo/distFrom;
+	   
+		switch (de.getId()) {
+			case DragEvent.GESTURE_DETECTED:
+			break;
+			case DragEvent.GESTURE_UPDATED:
+				if((distTo < maxDist && distTo > 50) || (distFrom < maxDist && distFrom > 50))
+				{
+					comp.scaleGlobal(scale, scale, 1, orgTo);
+				}
+			
+				double angle = Math.atan2(mvTo.y,mvTo.x)-Math.atan2(mvFrom.y,mvFrom.x);
+				double angleDeg = Math.toDegrees(angle);
+				//System.out.print("valeur de l'angle "+angleDeg+"et l'angle norm" +angle+"\n");
+				comp.rotateZGlobal(orgTo, (float)angleDeg);
+			break;
+			case DragEvent.GESTURE_ENDED:
+				Vector3D vel = de.getDragCursor().getVelocityVector(integrationTime);
+				vel.scaleLocal(2.5f); //Test - integrate over longer time but scale down velocity vec
+				vel = vel.getLimited(limit);
+				oldController = comp.getController();
+				comp.setController(new InertiaCircuController(comp, vel, mvTo, orgTo,oldController));
+			break;
+			default:
+			break;
+		}
+	}
+return false;
+}
+
+
+	private class InertiaCircuController implements IMTController{
+		private MTComponent target;
+		private Vector3D startVelocityVec;
+		private Vector3D to;
+		private Vector3D newPos;
+		private Vector3D oldPos;
+		// private float dampingValue = 0.90f;
+		// private float dampingValue = 0.80f;
+		// private float dampingValue = 0.45f;
+		private IMTController oldController;
+		//TODO use animation instead and ease out?
+		private int animationTime = 1000;
+		private int currentAnimationTime = 0;
+		private float movePerMilli;
+		private Vector3D moveVectNorm;
+		private Vector3D moveVect;
+		private Vector3D zeros = new Vector3D(0,0,0);
+		private float d;
+		
+		public InertiaCircuController(MTComponent target, Vector3D startVelocityVec, Vector3D mvTo, Vector3D to, IMTController oldController) {
+			super();
+			this.target = target;
+			this.to=to;
+			this.newPos = new Vector3D(mvTo.x,mvTo.y);
+			this.oldPos = new Vector3D(mvTo.x,mvTo.y);
+			this.startVelocityVec = startVelocityVec;
+			this.oldController = oldController;
+			//Animation inertiaAnim = new Animation("Inertia anim for " + target, new MultiPurposeInterpolator(startVelocityVec.length(), 0, 100, 0.0f, 0.5f, 1), target);
+			/*
+			currentAnimationTime = 0;
+			movePerMilli = startVelocityVec.length()/animationTime;
+			moveVectNorm = startVelocityVec.getNormalized();
+			moveVect = new Vector3D();
+			*/
+		}
+		//TODO ? inertia animation is frame based, not time - so framerate decides how long it goes..
+		////@Override
+		public void update(long timeDelta) {
+			/*
+			currentAnimationTime += timeDelta;
+			if (currentAnimationTime < animationTime){
+			moveVect.setValues(moveVectNorm);
+			moveVect.scaleLocal(timeDelta * movePerMilli);
+			target.translateGlobal(moveVect);
+			}else{
+			target.setController(oldController);
+			return;
+			}
+			*/
+			// /*
+				startVelocityVec.scaleLocal(damping);
+				Vector3D save = this.newPos.getCopy();
+				save.addLocal(startVelocityVec);
+				this.d = zeros.distance(save);
+				
+				System.out.println("valeur de d = "+d+" maxdist "+maxDist);
+				
+				if ((Math.abs(startVelocityVec.x) < 0.05f && Math.abs(startVelocityVec.y) < 0.05f) || (this.d > maxDist)){
+					startVelocityVec.setValues(Vector3D.ZERO_VECTOR);
+					target.setController(oldController);
+					return;
+				}
+				
+			
+			float distFrom = center.distance(this.to);
+			save = this.to.getCopy();
+			this.to.addLocal(startVelocityVec);
+			float distTo = center.distance(this.to);
+			
+			float scale = distTo/distFrom;
+			
+			target.translateGlobal(startVelocityVec);
+			   //target.scaleGlobal(startVelocityVec., startVelocityVec.y, 0, startVelocityVec);
+			   
+			// */
+			
+			
+			if((distTo < maxDist && distTo > 50) || (distFrom < maxDist && distFrom > 50))
+			{
+				target.scaleGlobal(scale, scale, 1, save);
+			}
+			
+
+			this.newPos.addLocal(startVelocityVec);
+			
+			double angle = Math.atan2(this.newPos.y,this.newPos.x)-Math.atan2(oldPos.y,oldPos.x);
+			double angleDeg = Math.toDegrees(angle);
+			
+			this.target.rotateZGlobal(this.to, (float)angleDeg);
+			this.oldPos.setXYZ(this.newPos.x,this.newPos.y,0);
+
+			if (oldController != null){
+			oldController.update(timeDelta);
+			}
+		}
+	}
+}
+

@@ -1,0 +1,30 @@
+package Navigateur;
+
+import org.mt4j.AbstractMTApplication;
+import org.mt4j.input.inputProcessors.globalProcessors.CursorTracer;
+import org.mt4j.sceneManagement.AbstractScene;
+import org.mt4j.util.MT4jSettings;
+import org.mt4j.util.MTColor;
+
+public class MTBrowserScene extends AbstractScene{
+	
+	public MTBrowserScene(AbstractMTApplication mtApplication, String name) {
+		super(mtApplication, name);
+		setClearColor(new MTColor(80,80,70,255));
+		registerGlobalInputProcessor(new CursorTracer(mtApplication, this));
+		
+		//Create a new browser component
+		MTWebBrowser browser = new MTWebBrowser(getMTApplication(), 800, 600);
+		browser.setFillColor(new MTColor(180,180,180,200));
+		browser.setStrokeColor(MTColor.BLACK);
+		getCanvas().addChild(browser);
+		
+		browser.setPositionGlobal(MT4jSettings.getInstance().getWindowCenter());
+		
+	}
+	
+	public void onEnter() {}
+	
+	public void onLeave() {}
+		
+}

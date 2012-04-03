@@ -1,0 +1,233 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x05b34c80, pid=2548, tid=2512
+#
+# JRE version: 7.0_03-b05
+# Java VM: Java HotSpot(TM) Client VM (22.1-b02 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  0x05b34c80
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0304e800):  JavaThread "Animation Thread" [_thread_in_native, id=2512, stack(0x032e0000,0x03330000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x05b34c80
+
+Registers:
+EAX=0x0332f430, EBX=0x263bbd10, ECX=0x263bbd10, EDX=0x0304e928
+ESP=0x0332f3fc, EBP=0x0332f428, ESI=0x254967e0, EDI=0x0304e800
+EIP=0x05b34c80, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x0332f3fc)
+0x0332f3fc:   00c949ed 0304e928 0332f410 00000000
+0x0332f40c:   0332f430 263bbd10 0332f428 6d8f8b60
+0x0332f41c:   0304e800 2b97f6d0 00000000 0332fc48
+0x0332f42c:   00c6c4ac 254967e0 0332f438 2b97f6d0
+0x0332f43c:   2b97f6d0 2bc86708 00c629c1 0332fc48
+0x0332f44c:   00c63334 00000000 00000009 00000000
+0x0332f45c:   00000000 263bbd10 254967e0 00000000
+0x0332f46c:   00000010 00000003 00001406 0000001c 
+
+Instructions: (pc=0x05b34c80)
+0x05b34c60:   
+[error occurred during error reporting (printing registers, top of stack, instructions near pc), id 0xc0000005]
+
+Register to memory mapping:
+
+EAX=0x0332f430 is pointing into the stack for thread: 0x0304e800
+EBX=0x263bbd10 is an oop
+com.sun.jna.Function 
+ - klass: 'com/sun/jna/Function'
+ECX=0x263bbd10 is an oop
+com.sun.jna.Function 
+ - klass: 'com/sun/jna/Function'
+EDX=0x0304e928 is an unknown value
+ESP=0x0332f3fc is pointing into the stack for thread: 0x0304e800
+EBP=0x0332f428 is pointing into the stack for thread: 0x0304e800
+ESI=0x254967e0 is an oop
+[Ljava.lang.Object; 
+ - klass: 'java/lang/Object'[]
+ - length: 1
+EDI=0x0304e800 is a thread
+
+
+Stack: [0x032e0000,0x03330000],  sp=0x0332f3fc,  free space=316k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x05b34c80
+J  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x123c0a]
+V  [jvm.dll+0x1c9e8e]
+V  [jvm.dll+0x123df3]
+V  [jvm.dll+0x123e57]
+V  [jvm.dll+0xcd90f]
+V  [jvm.dll+0x14394f]
+V  [jvm.dll+0x1720b9]
+C  [msvcr100.dll+0x5c6de]  endthreadex+0x3a
+C  [msvcr100.dll+0x5c788]  endthreadex+0xe4
+C  [kernel32.dll+0xb729]  GetModuleFileNameA+0x1ba
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J  com.sun.jna.Function.invokeVoid(I[Ljava/lang/Object;)V
+J  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;
+J  com.sun.jna.Function.invoke(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object;
+J  com.sun.jna.Library$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+J  $Proxy0.awe_WebCore_update(Lcom/sun/jna/Pointer;)V
+J  org.mt4jx.components.visibleComponents.widgets.MTWebView.updateComponent(J)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawAndUpdateCanvas(Lprocessing/core/PGraphics;J)V
+J  org.mt4j.sceneManagement.AbstractScene.drawAndUpdate(Lprocessing/core/PGraphics;J)V
+J  org.mt4j.AbstractMTApplication.runApplication()V
+J  org.mt4j.AbstractMTApplication.draw()V
+J  processing.core.PApplet.handleDraw()V
+j  processing.core.PApplet.run()V+59
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x03658800 JavaThread "Image Fetcher 0" daemon [_thread_blocked, id=4028, stack(0x058d0000,0x05920000)]
+  0x08987800 JavaThread "Batik CleanerThread" daemon [_thread_blocked, id=2508, stack(0x07ef0000,0x07f40000)]
+  0x0344b800 JavaThread "Thread-3" [_thread_in_native, id=2316, stack(0x05610000,0x05660000)]
+  0x003c9800 JavaThread "DestroyJavaVM" [_thread_blocked, id=1544, stack(0x00900000,0x00950000)]
+=>0x0304e800 JavaThread "Animation Thread" [_thread_in_native, id=2512, stack(0x032e0000,0x03330000)]
+  0x0302a400 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=1580, stack(0x03240000,0x03290000)]
+  0x02f27400 JavaThread "AWT-Shutdown" [_thread_blocked, id=752, stack(0x03130000,0x03180000)]
+  0x02f38800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=2748, stack(0x030e0000,0x03130000)]
+  0x02bda400 JavaThread "Service Thread" daemon [_thread_blocked, id=2200, stack(0x02e30000,0x02e80000)]
+  0x02bd7c00 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=2776, stack(0x02de0000,0x02e30000)]
+  0x02bd2c00 JavaThread "Attach Listener" daemon [_thread_blocked, id=3648, stack(0x02d90000,0x02de0000)]
+  0x02bd1800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2224, stack(0x02d40000,0x02d90000)]
+  0x02bc2800 JavaThread "Finalizer" daemon [_thread_blocked, id=2028, stack(0x02cf0000,0x02d40000)]
+  0x02bbdc00 JavaThread "Reference Handler" daemon [_thread_blocked, id=3712, stack(0x02ca0000,0x02cf0000)]
+
+Other Threads:
+  0x02bbc000 VMThread [stack: 0x02c50000,0x02ca0000] [id=2396]
+  0x02bedc00 WatcherThread [stack: 0x02e80000,0x02ed0000] [id=2240]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 58176K, used 51597K [0x229f0000, 0x26910000, 0x27f40000)
+  eden space 51712K,  87% used [0x229f0000, 0x256182e0, 0x25c70000)
+  from space 6464K,  98% used [0x262c0000, 0x268fb3f8, 0x26910000)
+  to   space 6464K,   0% used [0x25c70000, 0x25c70000, 0x262c0000)
+ tenured generation   total 129196K, used 77692K [0x27f40000, 0x2fd6b000, 0x329f0000)
+   the space 129196K,  60% used [0x27f40000, 0x2cb1f058, 0x2cb1f200, 0x2fd6b000)
+ compacting perm gen  total 12288K, used 9427K [0x329f0000, 0x335f0000, 0x369f0000)
+   the space 12288K,  76% used [0x329f0000, 0x33324cf8, 0x33324e00, 0x335f0000)
+    ro space 10240K,  42% used [0x369f0000, 0x36e2db28, 0x36e2dc00, 0x373f0000)
+    rw space 12288K,  54% used [0x373f0000, 0x37a6e400, 0x37a6e400, 0x37ff0000)
+
+Code Cache  [0x00970000, 0x00ca0000, 0x02970000)
+ total_blobs=2134 nmethods=1698 adapters=370 free_code_cache=29530Kb largest_free_block=30237248
+
+Dynamic libraries:
+0x00400000 - 0x0042f000 	C:\Program Files\Java\jre7\bin\javaw.exe
+0x7c910000 - 0x7c9c9000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c906000 	C:\WINDOWS\system32\kernel32.dll
+0x77da0000 - 0x77e4c000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e50000 - 0x77ee3000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77fc0000 - 0x77fd1000 	C:\WINDOWS\system32\Secur32.dll
+0x7e390000 - 0x7e421000 	C:\WINDOWS\system32\USER32.dll
+0x77ef0000 - 0x77f39000 	C:\WINDOWS\system32\GDI32.dll
+0x77390000 - 0x77493000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.6028_x-ww_61e65202\COMCTL32.dll
+0x77be0000 - 0x77c38000 	C:\WINDOWS\system32\msvcrt.dll
+0x77f40000 - 0x77fb6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x76320000 - 0x7633d000 	C:\WINDOWS\system32\IMM32.DLL
+0x78aa0000 - 0x78b5e000 	C:\Program Files\Java\jre7\bin\msvcr100.dll
+0x6d830000 - 0x6db58000 	C:\Program Files\Java\jre7\bin\client\jvm.dll
+0x71a10000 - 0x71a1a000 	C:\WINDOWS\system32\WSOCK32.dll
+0x719f0000 - 0x71a07000 	C:\WINDOWS\system32\WS2_32.dll
+0x719e0000 - 0x719e8000 	C:\WINDOWS\system32\WS2HELP.dll
+0x76ae0000 - 0x76b0f000 	C:\WINDOWS\system32\WINMM.dll
+0x76ba0000 - 0x76bab000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d7c0000 - 0x6d7cc000 	C:\Program Files\Java\jre7\bin\verify.dll
+0x6d2f0000 - 0x6d310000 	C:\Program Files\Java\jre7\bin\java.dll
+0x6d810000 - 0x6d823000 	C:\Program Files\Java\jre7\bin\zip.dll
+0x6d000000 - 0x6d142000 	C:\Program Files\Java\jre7\bin\awt.dll
+0x770e0000 - 0x7716b000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x774a0000 - 0x775de000 	C:\WINDOWS\system32\ole32.dll
+0x5b090000 - 0x5b0c8000 	C:\WINDOWS\system32\uxtheme.dll
+0x75140000 - 0x7516e000 	C:\WINDOWS\system32\msctfime.ime
+0x77bd0000 - 0x77bd8000 	C:\WINDOWS\system32\VERSION.dll
+0x6d240000 - 0x6d26a000 	C:\Program Files\Java\jre7\bin\fontmanager.dll
+0x10000000 - 0x1004d000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\mt4j-desktop\jogl.dll
+0x5f070000 - 0x5f13c000 	C:\WINDOWS\system32\OPENGL32.dll
+0x6cef0000 - 0x6cf11000 	C:\WINDOWS\system32\GLU32.dll
+0x736b0000 - 0x736fb000 	C:\WINDOWS\system32\DDRAW.dll
+0x73b10000 - 0x73b16000 	C:\WINDOWS\system32\DCIMAN32.dll
+0x6d320000 - 0x6d326000 	C:\Program Files\Java\jre7\bin\jawt.dll
+0x045d0000 - 0x045d5000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\mt4j-desktop\jogl_awt.dll
+0x69500000 - 0x6a6e6000 	C:\WINDOWS\system32\nvoglnt.dll
+0x7c9d0000 - 0x7d1f5000 	C:\WINDOWS\system32\SHELL32.dll
+0x6d5e0000 - 0x6d5f4000 	C:\Program Files\Java\jre7\bin\net.dll
+0x6d600000 - 0x6d60f000 	C:\Program Files\Java\jre7\bin\nio.dll
+0x70fc0000 - 0x70fd1000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\mt4j-desktop\ManyMouse.dll
+0x71990000 - 0x719d0000 	C:\WINDOWS\system32\mswsock.dll
+0x62e40000 - 0x62e99000 	C:\WINDOWS\system32\hnetcfg.dll
+0x719d0000 - 0x719d8000 	C:\WINDOWS\System32\wshtcpip.dll
+0x6d3f0000 - 0x6d415000 	C:\Program Files\Java\jre7\bin\jpeg.dll
+0x6d760000 - 0x6d791000 	C:\Program Files\Java\jre7\bin\t2k.dll
+0x76ed0000 - 0x76ef7000 	C:\WINDOWS\system32\DNSAPI.dll
+0x76d10000 - 0x76d29000 	C:\WINDOWS\system32\iphlpapi.dll
+0x76f60000 - 0x76f68000 	C:\WINDOWS\System32\winrnr.dll
+0x76f10000 - 0x76f3d000 	C:\WINDOWS\system32\WLDAP32.dll
+0x76f70000 - 0x76f76000 	C:\WINDOWS\system32\rasadhlp.dll
+0x68000000 - 0x68036000 	C:\WINDOWS\system32\rsaenh.dll
+0x76960000 - 0x76a16000 	C:\WINDOWS\system32\USERENV.dll
+0x6fee0000 - 0x6ff35000 	C:\WINDOWS\system32\netapi32.dll
+0x03290000 - 0x0329c000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\ConnecTable\awesomiumc.dll
+0x05e70000 - 0x07388000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\ConnecTable\Awesomium.dll
+0x61880000 - 0x618ba000 	C:\WINDOWS\system32\OLEACC.dll
+0x74da0000 - 0x74e0d000 	C:\WINDOWS\system32\RICHED20.dll
+0x753c0000 - 0x7542b000 	C:\WINDOWS\system32\USP10.dll
+0x78480000 - 0x7850e000 	C:\WINDOWS\WinSxS\x86_Microsoft.VC90.CRT_1fc8b3b9a1e18e3b_9.0.30729.6161_x-ww_31a54e43\MSVCP90.dll
+0x78520000 - 0x785c3000 	C:\WINDOWS\WinSxS\x86_Microsoft.VC90.CRT_1fc8b3b9a1e18e3b_9.0.30729.6161_x-ww_31a54e43\MSVCR90.dll
+0x4ad00000 - 0x4b771000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\ConnecTable\icudt42.dll
+0x3cf00000 - 0x3cf1d000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\ConnecTable\locales\en-US.dll
+0x77650000 - 0x77671000 	C:\WINDOWS\system32\NTMARTA.DLL
+0x71b50000 - 0x71b63000 	C:\WINDOWS\system32\SAMLIB.dll
+
+VM Arguments:
+jvm_args: -Djava.library.path=C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\mt4j-desktop -Dfile.encoding=Cp1252 
+java_command: ShellCirculaire.StartShellCirculaire
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/Program Files/Java/jre7/bin/client;C:/Program Files/Java/jre7/bin;C:/Program Files/Java/jre7/lib/i386;C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin;C:\Program Files\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\system32\WindowsPowerShell\v1.0;C:\Program Files\eclipse;
+USERNAME=VirtualSens
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 37 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 3
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 3333100k(1910168k free), swap 6505848k(5170324k free)
+
+vm_info: Java HotSpot(TM) Client VM (22.1-b02) for windows-x86 JRE (1.7.0_03-b05), built on Feb  3 2012 20:43:37 by "java_re" with unknown MS VC++:1600
+
+time: Mon Apr 02 08:55:57 2012
+elapsed time: 73 seconds
+

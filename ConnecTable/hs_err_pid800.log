@@ -1,0 +1,269 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x05884d00, pid=800, tid=3948
+#
+# JRE version: 7.0_03-b05
+# Java VM: Java HotSpot(TM) Client VM (22.1-b02 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  0x05884d00
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x03049000):  JavaThread "Animation Thread" [_thread_in_native, id=3948, stack(0x03300000,0x03350000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x05884d00
+
+Registers:
+EAX=0x05884d00, EBX=0x32f672b8, ECX=0x03049128, EDX=0x32f6a6a8
+ESP=0x0334f15c, EBP=0x0334f194, ESI=0x32f672b8, EDI=0x03049000
+EIP=0x05884d00, EFLAGS=0x00010283
+
+Top of Stack: (sp=0x0334f15c)
+0x0334f15c:   0097a5b7 03049128 0334f1ac 00000000
+0x0334f16c:   0334f1a4 03049000 0334f174 00000000
+0x0334f17c:   0334f1ac 32f6a6a8 00000000 32f672b8
+0x0334f18c:   00000000 0334f1b0 0334f524 00c02578
+0x0334f19c:   00000000 00978849 22e46880 00000000
+0x0334f1ac:   29182f80 22e46880 0334f1b8 379de3a0
+0x0334f1bc:   290a7418 291306d0 00beb6a9 0334f524
+0x0334f1cc:   00beb3ac 22e46898 0334f20c 0334f204 
+
+Instructions: (pc=0x05884d00)
+0x05884ce0:   
+[error occurred during error reporting (printing registers, top of stack, instructions near pc), id 0xc0000005]
+
+Register to memory mapping:
+
+EAX=0x05884d00 is an unknown value
+EBX=0x32f672b8 is an oop
+{method} 
+ - klass: {other class}
+ECX=0x03049128 is an unknown value
+EDX=0x32f6a6a8 is an oop
+{constant pool cache} 
+ - klass: {other class}
+ESP=0x0334f15c is pointing into the stack for thread: 0x03049000
+EBP=0x0334f194 is pointing into the stack for thread: 0x03049000
+ESI=0x32f672b8 is an oop
+{method} 
+ - klass: {other class}
+EDI=0x03049000 is a thread
+
+
+Stack: [0x03300000,0x03350000],  sp=0x0334f15c,  free space=316k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x05884d00
+J  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;
+j  org.gstreamer.Pipeline.queryPosition(Lorg/gstreamer/Format;)J+19
+j  org.gstreamer.Pipeline.queryPosition()Lorg/gstreamer/ClockTime;+4
+j  codeanticode.gsvideo.GSMovie.time()F+4
+j  org.mt4j.components.visibleComponents.widgets.video.MTMovieClip$MovieClip.onNewFrame()V+41
+j  org.mt4j.components.visibleComponents.widgets.video.MTVideoTexture.updateComponent(J)V+154
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+j  org.mt4j.sceneManagement.AbstractScene.drawAndUpdate(Lprocessing/core/PGraphics;J)V+94
+J  org.mt4j.AbstractMTApplication.runApplication()V
+j  processing.core.PApplet.handleDraw()V+148
+j  processing.core.PApplet.run()V+59
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x123c0a]
+V  [jvm.dll+0x1c9e8e]
+V  [jvm.dll+0x123df3]
+V  [jvm.dll+0x123e57]
+V  [jvm.dll+0xcd90f]
+V  [jvm.dll+0x14394f]
+V  [jvm.dll+0x1720b9]
+C  [msvcr100.dll+0x5c6de]  endthreadex+0x3a
+C  [msvcr100.dll+0x5c788]  endthreadex+0xe4
+C  [kernel32.dll+0xb729]  GetModuleFileNameA+0x1ba
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.sun.jna.Function.invokeInt(I[Ljava/lang/Object;)I+0
+J  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;
+J  com.sun.jna.Function.invoke(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object;
+J  com.sun.jna.Library$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+J  org.gstreamer.lowlevel.GNative$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+j  org.gstreamer.$Proxy18.gst_element_query_position(Lorg/gstreamer/Element;[Lorg/gstreamer/Format;[J)Z+24
+j  org.gstreamer.Pipeline.queryPosition(Lorg/gstreamer/Format;)J+19
+j  org.gstreamer.Pipeline.queryPosition()Lorg/gstreamer/ClockTime;+4
+j  codeanticode.gsvideo.GSMovie.time()F+4
+j  org.mt4j.components.visibleComponents.widgets.video.MTMovieClip$MovieClip.onNewFrame()V+41
+j  org.mt4j.components.visibleComponents.widgets.video.MTVideoTexture.updateComponent(J)V+154
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+j  org.mt4j.components.MTCanvas.drawAndUpdateCanvas(Lprocessing/core/PGraphics;J)V+55
+j  org.mt4j.sceneManagement.AbstractScene.drawAndUpdate(Lprocessing/core/PGraphics;J)V+94
+J  org.mt4j.AbstractMTApplication.runApplication()V
+j  org.mt4j.AbstractMTApplication.draw()V+1
+j  processing.core.PApplet.handleDraw()V+148
+j  processing.core.PApplet.run()V+59
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0357c800 JavaThread "Thread-0" daemon [_thread_in_native, id=624, stack(0x06b20000,0x06b70000)]
+  0x040df400 JavaThread "gstreamer service thread 1" daemon [_thread_blocked, id=1436, stack(0x05ed0000,0x05f20000)]
+  0x035fc400 JavaThread "Thread-2" [_thread_in_native, id=416, stack(0x056a0000,0x056f0000)]
+  0x003c9800 JavaThread "DestroyJavaVM" [_thread_blocked, id=3452, stack(0x00900000,0x00950000)]
+=>0x03049000 JavaThread "Animation Thread" [_thread_in_native, id=3948, stack(0x03300000,0x03350000)]
+  0x03025400 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=1892, stack(0x03260000,0x032b0000)]
+  0x02f22800 JavaThread "AWT-Shutdown" [_thread_blocked, id=708, stack(0x03130000,0x03180000)]
+  0x02f21000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=3268, stack(0x030e0000,0x03130000)]
+  0x02bda400 JavaThread "Service Thread" daemon [_thread_blocked, id=1340, stack(0x02e30000,0x02e80000)]
+  0x02bd7c00 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=3392, stack(0x02de0000,0x02e30000)]
+  0x02bd2c00 JavaThread "Attach Listener" daemon [_thread_blocked, id=260, stack(0x02d90000,0x02de0000)]
+  0x02bd1800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=3356, stack(0x02d40000,0x02d90000)]
+  0x02bc2800 JavaThread "Finalizer" daemon [_thread_blocked, id=4044, stack(0x02cf0000,0x02d40000)]
+  0x02bbdc00 JavaThread "Reference Handler" daemon [_thread_blocked, id=2468, stack(0x02ca0000,0x02cf0000)]
+
+Other Threads:
+  0x02bbc000 VMThread [stack: 0x02c50000,0x02ca0000] [id=3472]
+  0x02bed400 WatcherThread [stack: 0x02e80000,0x02ed0000] [id=4072]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 35840K, used 14958K [0x229f0000, 0x250d0000, 0x27f40000)
+  eden space 31872K,  42% used [0x229f0000, 0x23722e80, 0x24910000)
+  from space 3968K,  36% used [0x24910000, 0x24a78c00, 0x24cf0000)
+  to   space 3968K,   0% used [0x24cf0000, 0x24cf0000, 0x250d0000)
+ tenured generation   total 79520K, used 43403K [0x27f40000, 0x2cce8000, 0x329f0000)
+   the space 79520K,  54% used [0x27f40000, 0x2a9a2c90, 0x2a9a2e00, 0x2cce8000)
+ compacting perm gen  total 12288K, used 6960K [0x329f0000, 0x335f0000, 0x369f0000)
+   the space 12288K,  56% used [0x329f0000, 0x330bc160, 0x330bc200, 0x335f0000)
+    ro space 10240K,  42% used [0x369f0000, 0x36e2db28, 0x36e2dc00, 0x373f0000)
+    rw space 12288K,  54% used [0x373f0000, 0x37a6e400, 0x37a6e400, 0x37ff0000)
+
+Code Cache  [0x00970000, 0x00c10000, 0x02970000)
+ total_blobs=1539 nmethods=1109 adapters=365 free_code_cache=30081Kb largest_free_block=30802816
+
+Dynamic libraries:
+0x00400000 - 0x0042f000 	C:\Program Files\Java\jre7\bin\javaw.exe
+0x7c910000 - 0x7c9c9000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c906000 	C:\WINDOWS\system32\kernel32.dll
+0x77da0000 - 0x77e4c000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e50000 - 0x77ee3000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77fc0000 - 0x77fd1000 	C:\WINDOWS\system32\Secur32.dll
+0x7e390000 - 0x7e421000 	C:\WINDOWS\system32\USER32.dll
+0x77ef0000 - 0x77f39000 	C:\WINDOWS\system32\GDI32.dll
+0x77390000 - 0x77493000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.6028_x-ww_61e65202\COMCTL32.dll
+0x77be0000 - 0x77c38000 	C:\WINDOWS\system32\msvcrt.dll
+0x77f40000 - 0x77fb6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x76320000 - 0x7633d000 	C:\WINDOWS\system32\IMM32.DLL
+0x78aa0000 - 0x78b5e000 	C:\Program Files\Java\jre7\bin\msvcr100.dll
+0x6d830000 - 0x6db58000 	C:\Program Files\Java\jre7\bin\client\jvm.dll
+0x71a10000 - 0x71a1a000 	C:\WINDOWS\system32\WSOCK32.dll
+0x719f0000 - 0x71a07000 	C:\WINDOWS\system32\WS2_32.dll
+0x719e0000 - 0x719e8000 	C:\WINDOWS\system32\WS2HELP.dll
+0x76ae0000 - 0x76b0f000 	C:\WINDOWS\system32\WINMM.dll
+0x76ba0000 - 0x76bab000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d7c0000 - 0x6d7cc000 	C:\Program Files\Java\jre7\bin\verify.dll
+0x6d2f0000 - 0x6d310000 	C:\Program Files\Java\jre7\bin\java.dll
+0x6d810000 - 0x6d823000 	C:\Program Files\Java\jre7\bin\zip.dll
+0x6d000000 - 0x6d142000 	C:\Program Files\Java\jre7\bin\awt.dll
+0x770e0000 - 0x7716b000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x774a0000 - 0x775de000 	C:\WINDOWS\system32\ole32.dll
+0x5b090000 - 0x5b0c8000 	C:\WINDOWS\system32\uxtheme.dll
+0x19600000 - 0x19613000 	C:\Program Files\TeamViewer\Version7\tv_w32.dll
+0x73ce0000 - 0x73d07000 	C:\WINDOWS\system32\CRTDLL.dll
+0x7c9d0000 - 0x7d1f5000 	C:\WINDOWS\system32\SHELL32.dll
+0x75140000 - 0x7516e000 	C:\WINDOWS\system32\msctfime.ime
+0x77bd0000 - 0x77bd8000 	C:\WINDOWS\system32\VERSION.dll
+0x6d240000 - 0x6d26a000 	C:\Program Files\Java\jre7\bin\fontmanager.dll
+0x10000000 - 0x1004d000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\mt4j-desktop\jogl.dll
+0x5f070000 - 0x5f13c000 	C:\WINDOWS\system32\OPENGL32.dll
+0x6cef0000 - 0x6cf11000 	C:\WINDOWS\system32\GLU32.dll
+0x736b0000 - 0x736fb000 	C:\WINDOWS\system32\DDRAW.dll
+0x73b10000 - 0x73b16000 	C:\WINDOWS\system32\DCIMAN32.dll
+0x6d320000 - 0x6d326000 	C:\Program Files\Java\jre7\bin\jawt.dll
+0x037f0000 - 0x037f5000 	C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\mt4j-desktop\jogl_awt.dll
+0x69500000 - 0x6a6e6000 	C:\WINDOWS\system32\nvoglnt.dll
+0x6d5e0000 - 0x6d5f4000 	C:\Program Files\Java\jre7\bin\net.dll
+0x6d600000 - 0x6d60f000 	C:\Program Files\Java\jre7\bin\nio.dll
+0x71990000 - 0x719d0000 	C:\WINDOWS\system32\mswsock.dll
+0x62e40000 - 0x62e99000 	C:\WINDOWS\system32\hnetcfg.dll
+0x719d0000 - 0x719d8000 	C:\WINDOWS\System32\wshtcpip.dll
+0x6d3f0000 - 0x6d415000 	C:\Program Files\Java\jre7\bin\jpeg.dll
+0x6d760000 - 0x6d791000 	C:\Program Files\Java\jre7\bin\t2k.dll
+0x68000000 - 0x68036000 	C:\WINDOWS\system32\rsaenh.dll
+0x76960000 - 0x76a16000 	C:\WINDOWS\system32\USERENV.dll
+0x6fee0000 - 0x6ff35000 	C:\WINDOWS\system32\netapi32.dll
+0x76ed0000 - 0x76ef7000 	C:\WINDOWS\system32\DNSAPI.dll
+0x76d10000 - 0x76d29000 	C:\WINDOWS\system32\iphlpapi.dll
+0x76f60000 - 0x76f68000 	C:\WINDOWS\System32\winrnr.dll
+0x76f10000 - 0x76f3d000 	C:\WINDOWS\system32\WLDAP32.dll
+0x76f70000 - 0x76f76000 	C:\WINDOWS\system32\rasadhlp.dll
+0x058e0000 - 0x05984000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgstreamer-0.10.dll
+0x685c0000 - 0x686c5000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libglib-2.0-0.dll
+0x63a40000 - 0x63a7d000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgobject-2.0-0.dll
+0x65c40000 - 0x65c4a000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgthread-2.0-0.dll
+0x6dd00000 - 0x6dd09000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgmodule-2.0-0.dll
+0x70f40000 - 0x71094000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libxml2-2.dll
+0x05990000 - 0x0599a000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\iconv.dll
+0x66580000 - 0x66599000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\z.dll
+0x059a0000 - 0x059d3000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgstplaybin.dll
+0x059e0000 - 0x059e9000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgstvideo-0.10.dll
+0x05c10000 - 0x05c41000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgstbase-0.10.dll
+0x05a90000 - 0x05aa0000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgstinterfaces-0.10.dll
+0x05aa0000 - 0x05aad000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgstpbutils-0.10.dll
+0x05c50000 - 0x05c55000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgstapp.dll
+0x05c60000 - 0x05c6c000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgstapp-0.10.dll
+0x05c70000 - 0x05c96000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgstffmpegcolorspace.dll
+0x05ea0000 - 0x05eca000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgstcoreelements.dll
+0x05f20000 - 0x05f37000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgstdecodebin2.dll
+0x05f40000 - 0x05f4f000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgsttypefindfunctions.dll
+0x05f50000 - 0x05f6f000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgstavi.dll
+0x05f70000 - 0x05f7c000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgstriff-0.10.dll
+0x05f80000 - 0x05f90000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgsttag-0.10.dll
+0x05f90000 - 0x05fac000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libgstaudio-0.10.dll
+0x069d0000 - 0x069fd000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgstffmpeg-gpl.dll
+0x6f7c0000 - 0x6f7dc000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\avutil-gpl-50.dll
+0x6c100000 - 0x6c1c5000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\avformat-gpl-52.dll
+0x6b400000 - 0x6b415000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\libbz2.dll
+0x6e7c0000 - 0x6f1a4000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\avcodec-gpl-52.dll
+0x73aa0000 - 0x73ab7000 	C:\WINDOWS\system32\AVIFIL32.DLL
+0x77bb0000 - 0x77bc5000 	C:\WINDOWS\system32\MSACM32.dll
+0x75ba0000 - 0x75bc1000 	C:\WINDOWS\system32\MSVFW32.dll
+0x06a00000 - 0x06a11000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\lib\gstreamer-0.10\libgstvideoscale.dll
+0x6c9c0000 - 0x6ca3a000 	C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin\liboil-0.3-0.dll
+
+VM Arguments:
+jvm_args: -Djava.library.path=C:\Documents and Settings\VirtualSens\Mes documents\Github\Connectable\mt4j-desktop -Dfile.encoding=Cp1252 
+java_command: ShellCirculaire.StartShellCirculaire
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/Program Files/Java/jre7/bin/client;C:/Program Files/Java/jre7/bin;C:/Program Files/Java/jre7/lib/i386;C:\Program Files\OSSBuild\GStreamer\v0.10.6\bin;C:\Program Files\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\system32\WindowsPowerShell\v1.0;C:\Program Files\eclipse;
+USERNAME=VirtualSens
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 37 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 3
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 3333100k(1979532k free), swap 6505848k(5354296k free)
+
+vm_info: Java HotSpot(TM) Client VM (22.1-b02) for windows-x86 JRE (1.7.0_03-b05), built on Feb  3 2012 20:43:37 by "java_re" with unknown MS VC++:1600
+
+time: Mon Apr 02 21:26:04 2012
+elapsed time: 23 seconds
+

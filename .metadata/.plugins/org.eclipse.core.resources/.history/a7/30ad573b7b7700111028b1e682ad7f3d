@@ -1,0 +1,25 @@
+package shell_circulaire;
+
+import org.mt4j.sceneManagement.Iscene;
+
+/**
+ * The Interface ICreateScene.
+ * 
+ * @author Christopher Ruff
+ */
+public interface ICreateScene {
+	
+	/**
+	 * Gets the new scene.
+	 * 
+	 * @return the new scene
+	 */
+	public Iscene getNewScene();
+	
+	/**
+	 * Gets the title.
+	 * 
+	 * @return the title
+	 */
+	public String getTitle();
+}

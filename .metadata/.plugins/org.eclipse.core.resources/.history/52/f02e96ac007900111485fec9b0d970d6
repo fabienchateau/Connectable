@@ -1,0 +1,282 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x0692d620, pid=3036, tid=4828
+#
+# JRE version: 7.0_03-b05
+# Java VM: Java HotSpot(TM) Client VM (22.1-b02 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  0x0692d620
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x04ccb800):  JavaThread "Animation Thread" [_thread_in_native, id=4828, stack(0x08370000,0x083c0000)]
+
+siginfo: ExceptionCode=0xc0000005, ExceptionInformation=0x00000008 0x0692d620
+
+Registers:
+EAX=0x0aa0f000, EBX=0x00000000, ECX=0x0692d620, EDX=0x003dfb10
+ESP=0x083bed3c, EBP=0x083bed64, ESI=0x083beee0, EDI=0x04ccb800
+EIP=0x0692d620, EFLAGS=0x00010206
+
+Top of Stack: (sp=0x083bed3c)
+0x083bed3c:   66241172 0aa0f000 0aa49440 0aa43728
+0x083bed4c:   0bafcf08 0aa0f000 0aa43708 0aa43724
+0x083bed5c:   0aa43700 0c631758 083bede0 0bafe86b
+0x083bed6c:   083bedac 0053a3bc 083bee18 0a9f7000
+0x083bed7c:   04ccb928 00000001 00539f98 00539fa0
+0x083bed8c:   0053a38c 04ccb800 04b7b4a0 00000000
+0x083bed9c:   083bedd0 649d3393 04ccb800 60b8e2bb
+0x083bedac:   083beee0 04ccb800 083bede4 0a5a980c 
+
+Instructions: (pc=0x0692d620)
+0x0692d600:   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x0692d610:   00 00 00 00 00 00 00 00 d6 28 1a 7c 99 29 02 00
+0x0692d620:   c4 00 3d 00 10 fb 3d 00 00 00 00 00 00 00 00 00
+0x0692d630:   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+Register to memory mapping:
+
+EAX=0x0aa0f000 is an unknown value
+EBX=0x00000000 is an unknown value
+ECX=0x0692d620 is an unknown value
+EDX=0x003dfb10 is an unknown value
+ESP=0x083bed3c is pointing into the stack for thread: 0x04ccb800
+EBP=0x083bed64 is pointing into the stack for thread: 0x04ccb800
+ESI=0x083beee0 is pointing into the stack for thread: 0x04ccb800
+EDI=0x04ccb800 is a thread
+
+
+Stack: [0x08370000,0x083c0000],  sp=0x083bed3c,  free space=315k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x0692d620
+C  [Awesomium.dll+0xf1e86b]  Awesomium::getKeyIdentifierFromVirtualKeyCode+0x13eb
+C  [Awesomium.dll+0xf20981]  Awesomium::WebCore::update+0x11
+C  [jna7195653585794691660.tmp+0xe297]  Java_com_sun_jna_Native_registerMethod+0x58fd
+C  [jna7195653585794691660.tmp+0x99b2]  Java_com_sun_jna_Native_registerMethod+0x1018
+C  [jna7195653585794691660.tmp+0x215d]
+C  [jna7195653585794691660.tmp+0x28fc]  Java_com_sun_jna_Function_invokeVoid+0x35
+j  com.sun.jna.Function.invokeVoid(I[Ljava/lang/Object;)V+0
+j  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;+45
+j  com.sun.jna.Function.invoke(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object;+214
+j  com.sun.jna.Library$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+344
+j  $Proxy0.awe_WebCore_update(Lcom/sun/jna/Pointer;)V+16
+j  com.badlogic.gdx.awesomium.WebCore.update()V+7
+j  org.mt4jx.components.visibleComponents.widgets.MTWebView.updateComponent(J)V+8
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+j  org.mt4j.sceneManagement.AbstractScene.drawAndUpdate(Lprocessing/core/PGraphics;J)V+94
+j  org.mt4j.sceneManagement.transition.BlendTransition.drawAndUpdate(Lprocessing/core/PGraphics;J)V+6
+j  org.mt4j.AbstractMTApplication.runApplication()V+178
+j  org.mt4j.AbstractMTApplication.draw()V+1
+j  processing.core.PApplet.handleDraw()V+148
+j  processing.core.PApplet.run()V+59
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x123c0a]
+V  [jvm.dll+0x1c9e8e]
+V  [jvm.dll+0x123df3]
+V  [jvm.dll+0x123e57]
+V  [jvm.dll+0xcd90f]
+V  [jvm.dll+0x14394f]
+V  [jvm.dll+0x1720b9]
+C  [msvcr100.dll+0x5c6de]  endthreadex+0x3a
+C  [msvcr100.dll+0x5c788]  endthreadex+0xe4
+C  [kernel32.dll+0x1339a]  BaseThreadInitThunk+0x12
+C  [ntdll.dll+0x39ef2]  RtlInitializeExceptionChain+0x63
+C  [ntdll.dll+0x39ec5]  RtlInitializeExceptionChain+0x36
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.sun.jna.Function.invokeVoid(I[Ljava/lang/Object;)V+0
+j  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;+45
+j  com.sun.jna.Function.invoke(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object;+214
+j  com.sun.jna.Library$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+344
+j  $Proxy0.awe_WebCore_update(Lcom/sun/jna/Pointer;)V+16
+j  com.badlogic.gdx.awesomium.WebCore.update()V+7
+j  org.mt4jx.components.visibleComponents.widgets.MTWebView.updateComponent(J)V+8
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+J  org.mt4j.components.MTCanvas.drawUpdateRecursive(Lorg/mt4j/components/MTComponent;JLprocessing/core/PGraphics;)V
+j  org.mt4j.components.MTCanvas.drawAndUpdateCanvas(Lprocessing/core/PGraphics;J)V+55
+j  org.mt4j.sceneManagement.AbstractScene.drawAndUpdate(Lprocessing/core/PGraphics;J)V+94
+j  org.mt4j.sceneManagement.transition.BlendTransition.drawAndUpdate(Lprocessing/core/PGraphics;J)V+6
+j  org.mt4j.AbstractMTApplication.runApplication()V+178
+j  org.mt4j.AbstractMTApplication.draw()V+1
+j  processing.core.PApplet.handleDraw()V+148
+j  processing.core.PApplet.run()V+59
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0db83400 JavaThread "Batik CleanerThread" daemon [_thread_blocked, id=4740, stack(0x0e9c0000,0x0ea10000)]
+  0x06cfb800 JavaThread "Image Fetcher 3" daemon [_thread_blocked, id=2612, stack(0x0a550000,0x0a5a0000)]
+  0x001cb400 JavaThread "DestroyJavaVM" [_thread_blocked, id=2240, stack(0x00df0000,0x00e40000)]
+  0x06cc5800 JavaThread "D3D Screen Updater" daemon [_thread_blocked, id=5060, stack(0x01160000,0x011b0000)]
+=>0x04ccb800 JavaThread "Animation Thread" [_thread_in_native, id=4828, stack(0x08370000,0x083c0000)]
+  0x04cd0000 JavaThread "Image Fetcher 2" daemon [_thread_blocked, id=4764, stack(0x05330000,0x05380000)]
+  0x06cb0400 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=1760, stack(0x047c0000,0x04810000)]
+  0x04b19000 JavaThread "AWT-Windows" daemon [_thread_in_native, id=2012, stack(0x04e40000,0x04e90000)]
+  0x04b86400 JavaThread "AWT-Shutdown" [_thread_blocked, id=5104, stack(0x04fd0000,0x05020000)]
+  0x04b31000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=2620, stack(0x04f10000,0x04f60000)]
+  0x00535c00 JavaThread "Service Thread" daemon [_thread_blocked, id=4892, stack(0x04a50000,0x04aa0000)]
+  0x0052d000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=3396, stack(0x04810000,0x04860000)]
+  0x0052bc00 JavaThread "Attach Listener" daemon [_thread_blocked, id=5052, stack(0x048e0000,0x04930000)]
+  0x00528800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=4988, stack(0x046a0000,0x046f0000)]
+  0x00517800 JavaThread "Finalizer" daemon [_thread_blocked, id=3720, stack(0x04710000,0x04760000)]
+  0x00512c00 JavaThread "Reference Handler" daemon [_thread_blocked, id=3484, stack(0x011b0000,0x01200000)]
+
+Other Threads:
+  0x00510400 VMThread [stack: 0x00ef0000,0x00f40000] [id=2776]
+  0x00548000 WatcherThread [stack: 0x04aa0000,0x04af0000] [id=3432]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 55744K, used 2706K [0x24470000, 0x280e0000, 0x299c0000)
+  eden space 49600K,   5% used [0x24470000, 0x24714940, 0x274e0000)
+  from space 6144K,   0% used [0x274e0000, 0x274e0000, 0x27ae0000)
+  to   space 6144K,   0% used [0x27ae0000, 0x27ae0000, 0x280e0000)
+ tenured generation   total 123744K, used 74245K [0x299c0000, 0x31298000, 0x34470000)
+   the space 123744K,  59% used [0x299c0000, 0x2e2417a0, 0x2e241800, 0x31298000)
+ compacting perm gen  total 12288K, used 9069K [0x34470000, 0x35070000, 0x38470000)
+   the space 12288K,  73% used [0x34470000, 0x34d4b480, 0x34d4b600, 0x35070000)
+    ro space 10240K,  42% used [0x38470000, 0x388adb28, 0x388adc00, 0x38e70000)
+    rw space 12288K,  54% used [0x38e70000, 0x394ee400, 0x394ee400, 0x39a70000)
+
+Code Cache  [0x02690000, 0x02880000, 0x04690000)
+ total_blobs=1328 nmethods=897 adapters=366 free_code_cache=30811Kb largest_free_block=31550592
+
+Dynamic libraries:
+0x01260000 - 0x0128f000 	C:\Program Files (x86)\Java\jre7\bin\javaw.exe
+0x76f90000 - 0x77110000 	C:\Windows\SysWOW64\ntdll.dll
+0x75750000 - 0x75860000 	C:\Windows\syswow64\kernel32.dll
+0x75a60000 - 0x75aa6000 	C:\Windows\syswow64\KERNELBASE.dll
+0x74850000 - 0x748f0000 	C:\Windows\syswow64\ADVAPI32.dll
+0x76270000 - 0x7631c000 	C:\Windows\syswow64\msvcrt.dll
+0x74a40000 - 0x74a59000 	C:\Windows\SysWOW64\sechost.dll
+0x76320000 - 0x76410000 	C:\Windows\syswow64\RPCRT4.dll
+0x74670000 - 0x746d0000 	C:\Windows\syswow64\SspiCli.dll
+0x74660000 - 0x7466c000 	C:\Windows\syswow64\CRYPTBASE.dll
+0x75d20000 - 0x75e20000 	C:\Windows\syswow64\USER32.dll
+0x75970000 - 0x75a00000 	C:\Windows\syswow64\GDI32.dll
+0x74a60000 - 0x74a6a000 	C:\Windows\syswow64\LPK.dll
+0x761a0000 - 0x7623d000 	C:\Windows\syswow64\USP10.dll
+0x70c00000 - 0x70d9e000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+0x764d0000 - 0x76527000 	C:\Windows\syswow64\SHLWAPI.dll
+0x76140000 - 0x761a0000 	C:\Windows\system32\IMM32.DLL
+0x75e20000 - 0x75eec000 	C:\Windows\syswow64\MSCTF.dll
+0x66050000 - 0x6610e000 	C:\Program Files (x86)\Java\jre7\bin\msvcr100.dll
+0x649d0000 - 0x64cf8000 	C:\Program Files (x86)\Java\jre7\bin\client\jvm.dll
+0x73c30000 - 0x73c37000 	C:\Windows\system32\WSOCK32.dll
+0x76410000 - 0x76445000 	C:\Windows\syswow64\WS2_32.dll
+0x75860000 - 0x75866000 	C:\Windows\syswow64\NSI.dll
+0x71f50000 - 0x71f82000 	C:\Windows\system32\WINMM.dll
+0x75a50000 - 0x75a55000 	C:\Windows\syswow64\PSAPI.DLL
+0x72060000 - 0x7206c000 	C:\Program Files (x86)\Java\jre7\bin\verify.dll
+0x666f0000 - 0x66710000 	C:\Program Files (x86)\Java\jre7\bin\java.dll
+0x66300000 - 0x66313000 	C:\Program Files (x86)\Java\jre7\bin\zip.dll
+0x65f00000 - 0x66042000 	C:\Program Files (x86)\Java\jre7\bin\awt.dll
+0x75ef0000 - 0x75f7f000 	C:\Windows\syswow64\OLEAUT32.dll
+0x746d0000 - 0x7482c000 	C:\Windows\syswow64\ole32.dll
+0x71430000 - 0x714b0000 	C:\Windows\system32\uxtheme.dll
+0x19600000 - 0x19613000 	C:\Program Files (x86)\TeamViewer\Version7\tv_w32.dll
+0x6c240000 - 0x6c267000 	C:\Windows\system32\CRTDLL.dll
+0x74b00000 - 0x7574a000 	C:\Windows\syswow64\SHELL32.dll
+0x714f0000 - 0x71503000 	C:\Windows\system32\dwmapi.dll
+0x710b0000 - 0x71273000 	C:\Windows\system32\d3d9.dll
+0x74590000 - 0x74599000 	C:\Windows\system32\VERSION.dll
+0x710a0000 - 0x710a6000 	C:\Windows\system32\d3d8thk.dll
+0x63b60000 - 0x649c3000 	C:\Windows\system32\nvd3dum.dll
+0x706c0000 - 0x706e5000 	C:\Windows\system32\powrprof.dll
+0x76530000 - 0x766cd000 	C:\Windows\syswow64\SETUPAPI.dll
+0x748f0000 - 0x74917000 	C:\Windows\syswow64\CFGMGR32.dll
+0x74830000 - 0x74842000 	C:\Windows\syswow64\DEVOBJ.dll
+0x662d0000 - 0x662fa000 	C:\Program Files (x86)\Java\jre7\bin\fontmanager.dll
+0x10000000 - 0x1004d000 	C:\Users\MaXoU\workspace_new_mt4j\mt4j-desktop\jogl.dll
+0x65e30000 - 0x65ef8000 	C:\Windows\system32\OPENGL32.dll
+0x662a0000 - 0x662c2000 	C:\Windows\system32\GLU32.dll
+0x63a70000 - 0x63b57000 	C:\Windows\system32\DDRAW.dll
+0x72070000 - 0x72076000 	C:\Windows\system32\DCIMAN32.dll
+0x66290000 - 0x66296000 	C:\Program Files (x86)\Java\jre7\bin\jawt.dll
+0x00fa0000 - 0x00fa5000 	C:\Users\MaXoU\workspace_new_mt4j\mt4j-desktop\jogl_awt.dll
+0x758e0000 - 0x75963000 	C:\Windows\syswow64\CLBCatQ.DLL
+0x600f0000 - 0x613a3000 	C:\Windows\system32\nvoglv32.DLL
+0x76240000 - 0x7626d000 	C:\Windows\syswow64\WINTRUST.dll
+0x74920000 - 0x74a3d000 	C:\Windows\syswow64\CRYPT32.dll
+0x76f60000 - 0x76f6c000 	C:\Windows\syswow64\MSASN1.dll
+0x74500000 - 0x74521000 	C:\Windows\system32\ntmarta.dll
+0x75a00000 - 0x75a45000 	C:\Windows\syswow64\WLDAP32.dll
+0x66270000 - 0x66284000 	C:\Program Files (x86)\Java\jre7\bin\net.dll
+0x71c20000 - 0x71c5c000 	C:\Windows\system32\mswsock.dll
+0x73fc0000 - 0x73fc6000 	C:\Windows\System32\wship6.dll
+0x666e0000 - 0x666ef000 	C:\Program Files (x86)\Java\jre7\bin\nio.dll
+0x66250000 - 0x6626a000 	C:\Users\MaXoU\workspace_new_mt4j\mt4j-desktop\Win7Touch.dll
+0x65e00000 - 0x65e25000 	C:\Program Files (x86)\Java\jre7\bin\jpeg.dll
+0x65dc0000 - 0x65df1000 	C:\Program Files (x86)\Java\jre7\bin\t2k.dll
+0x70fb0000 - 0x70fc6000 	C:\Windows\system32\CRYPTSP.dll
+0x70e60000 - 0x70e9b000 	C:\Windows\system32\rsaenh.dll
+0x71c90000 - 0x71ca7000 	C:\Windows\system32\USERENV.dll
+0x71cf0000 - 0x71cfb000 	C:\Windows\system32\profapi.dll
+0x70ae0000 - 0x70af0000 	C:\Windows\system32\NLAapi.dll
+0x70ad0000 - 0x70ae0000 	C:\Windows\system32\napinsp.dll
+0x70ab0000 - 0x70ac2000 	C:\Windows\system32\pnrpnsp.dll
+0x70a60000 - 0x70aa4000 	C:\Windows\system32\DNSAPI.dll
+0x70a50000 - 0x70a58000 	C:\Windows\System32\winrnr.dll
+0x70a20000 - 0x70a47000 	C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live\WLIDNSP.DLL
+0x709f0000 - 0x70a11000 	C:\Program Files (x86)\Bonjour\mdnsNSP.dll
+0x718d0000 - 0x718ec000 	C:\Windows\system32\Iphlpapi.DLL
+0x718c0000 - 0x718c7000 	C:\Windows\system32\WINNSI.DLL
+0x71c10000 - 0x71c15000 	C:\Windows\System32\wshtcpip.dll
+0x709a0000 - 0x709a6000 	C:\Windows\system32\rasadhlp.dll
+0x709b0000 - 0x709e8000 	C:\Windows\System32\fwpuclnt.dll
+0x0a5a0000 - 0x0a5f3000 	C:\Users\MaXoU\AppData\Local\Temp\jna7195653585794691660.tmp
+0x66240000 - 0x6624c000 	C:\Users\MaXoU\workspace_new_mt4j\ConnecTable\awesomiumc.dll
+0x0abe0000 - 0x0c0f8000 	C:\Users\MaXoU\workspace_new_mt4j\ConnecTable\Awesomium.dll
+0x714e0000 - 0x714e8000 	C:\Windows\system32\Secur32.dll
+0x63a30000 - 0x63a6c000 	C:\Windows\system32\OLEACC.dll
+0x70770000 - 0x707e6000 	C:\Windows\system32\RICHED20.dll
+0x66140000 - 0x661ce000 	C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57\MSVCP90.dll
+0x73eb0000 - 0x73f53000 	C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57\MSVCR90.dll
+0x4ad00000 - 0x4b771000 	C:\Users\MaXoU\workspace_new_mt4j\ConnecTable\icudt42.dll
+0x70950000 - 0x7099c000 	C:\Windows\system32\apphelp.dll
+
+VM Arguments:
+jvm_args: -Djava.library.path=C:\Users\MaXoU\workspace_new_mt4j\mt4j-desktop -Dfile.encoding=Cp1252 
+java_command: ShellCirculaire.StartShellCirculaire
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=.;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip
+PATH=C:\Program Files (x86)\OSSBuild\GStreamer\v0.10.6\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\QuickTime\QTSystem\
+USERNAME=MaXoU
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 15 Stepping 11, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 11, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+Memory: 4k page, physical 4193400k(1887872k free), swap 8384948k(5674564k free)
+
+vm_info: Java HotSpot(TM) Client VM (22.1-b02) for windows-x86 JRE (1.7.0_03-b05), built on Feb  3 2012 20:43:37 by "java_re" with unknown MS VC++:1600
+
+time: Wed Mar 28 18:57:26 2012
+elapsed time: 5 seconds
+

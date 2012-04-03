@@ -1,0 +1,46 @@
+# Blender MTL File: 'assemblage-no-text.blend'
+# Material Count: 4
+newmtl Bleu_transp
+Ns 100
+Ka 1 1 1
+Kd 1 1 1
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd bleu_80.png
+
+
+newmtl Pares_avant
+Ns 11.764706
+Ka 0.000000 0.000000 0.000000
+Kd 0.718431 0.642526 0.103427
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd jaune_80.png
+
+
+newmtl Pneus
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.119134 0.119134 0.119134
+Ks 0.005024 0.005024 0.005024
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd noir_80.png
+
+
+newmtl plastic_gris
+Ns 15.686275
+Ka 0.000000 0.000000 0.000000
+Kd 0.075039 0.075039 0.075039
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd gris_80.png
+
+

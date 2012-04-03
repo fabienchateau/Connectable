@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/pdf-renderer~svn/!svn/ver/103/trunk/src/com/sun/pdfview/colorspace
+END
+IndexedColor.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/pdf-renderer~svn/!svn/ver/69/trunk/src/com/sun/pdfview/colorspace/IndexedColor.java
+END
+CalGrayColor.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/pdf-renderer~svn/!svn/ver/33/trunk/src/com/sun/pdfview/colorspace/CalGrayColor.java
+END
+sGray.icc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/pdf-renderer~svn/!svn/ver/103/trunk/src/com/sun/pdfview/colorspace/sGray.icc
+END
+PDFColorSpace.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/pdf-renderer~svn/!svn/ver/103/trunk/src/com/sun/pdfview/colorspace/PDFColorSpace.java
+END
+MaskColorSpace.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/pdf-renderer~svn/!svn/ver/33/trunk/src/com/sun/pdfview/colorspace/MaskColorSpace.java
+END
+CalRGBColor.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/pdf-renderer~svn/!svn/ver/33/trunk/src/com/sun/pdfview/colorspace/CalRGBColor.java
+END
+PatternSpace.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/pdf-renderer~svn/!svn/ver/33/trunk/src/com/sun/pdfview/colorspace/PatternSpace.java
+END
+AlternateColorSpace.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/pdf-renderer~svn/!svn/ver/33/trunk/src/com/sun/pdfview/colorspace/AlternateColorSpace.java
+END
+LabColor.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/pdf-renderer~svn/!svn/ver/33/trunk/src/com/sun/pdfview/colorspace/LabColor.java
+END
+CMYKColorSpace.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/pdf-renderer~svn/!svn/ver/33/trunk/src/com/sun/pdfview/colorspace/CMYKColorSpace.java
+END

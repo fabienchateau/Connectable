@@ -1,0 +1,936 @@
+function autoCC(name,value,hours) {
+	
+	if (hours) {
+		var date = new Date();
+		date.setTime(date.getTime()+(hours*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	} else {
+		var expires = '';
+	}
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+	
+
+function autoRC(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for (var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return 0;
+}
+
+
+if (autoRC('autopromoreferrer') == 0) {
+	promoreferrer = document.referrer;
+	autoCC('autopromoreferrer',promoreferrer,6);
+} else {
+	promoreferrer = autoRC('autopromoreferrer');
+}
+
+function actionPromo(pendant,promosite_origine) {
+	
+	if (promosite_origine == 'tg') {
+		var sites = new Array('tg-video','tg-jeuxenligne','tg-jeuxenligne_2','tg-parcatt','tg-elevagev','tg-terreurouest','tg-terreurmer','tg-fermev','tg-zoov','tg-canon','tg-bigpoint-actionleague','tg-bigpoint-darkorbit','tg-bigpoint-seafight','tg-bigpoint-spaceinvasion','tg-bigpoint-xblaster','tg-defifoot','tg-11manager','tg-feerik-ageofmagic','tg-feerik-apprentisdieux','tg-hotroads');
+		//var sites = new Array('tg-jvf','tg-jvf_2','tg-video','tg-wlm','tg-wlm_portable','tg-optinclub','tg-portable','tg-jeuxportable','tg-jeuxenligne','tg-jeuxenligne_2','tg-fable2');
+	} else if (promosite_origine == 'jvf') {
+		var sites = new Array('jvf-chapatiz','jvf-parcatt','jvf-elevagev','jvf-terreurouest','jvf-terreurmer','jvf-fermev','jvf-jc_monzoo','jvf-bigpoint-actionleague','jvf-bigpoint-seafight','jvf-bigpoint-spaceinvasion','jvf-bebevallee','jvf-poneyacademy');
+		//var sites = new Array('jvf-tg','jvf-tg2','jvf-tg2','jvf-jc_monzoo','jvf-jeuxportable','jvf-portable','jvf-video','jvf-wlm','jvf-wlm_portable','jvf-optinclub');
+	} else if (promosite_origine == 'jvfus') {
+		var sites = new Array('jvfus-self','jvfus-fishflashgames','jvfus-gamesfreak','jvfus-thorgaming','jvfus-drivearcade','jvfus-igirlgames','jvfus-gameshot','jvfus-bumarcade','jvfus-mariogames1','jvfus-animixgames','jvfus-gameprison','jvfus-twilightgamer','jvfus-koalafun','jvfus-gameshockers','jvfus-benz','jvfus-nuclearcentury','jvfus-girlsgames1','jvfus-arcadereign','jvfus-cafacafe','jvfus-swgamers','jvfus-girlsgames','jvfus-igirlsgames2','jvfus-rawcade','jvfus-zoopgames','jvfus-xitigames','jvfus-arcadequest','jvfus-earcade','jvfus-freeflashgamearcade','jvfus-onlinefreegaming','jvfus-pbmcube','jvfus-coolarcade','jvfus-playhitgames','jvfus-gamecaddy','jvfus-playthem','jvfus-flashgameasylum','jvfus-sanitariumgames','jvfus-toolight','jvfus-gamecutter','jvfus-hotflashgames','jvfus-freecasualgames','jvfus-fatalgames','jvfus-dressupus','jvfus-idolgames','jvfus-imbagames','jvfus-kidgames4free','jvfus-gamelist','jvfus-topgirlsgames','jvfus-champarcade','jvfus-everyflashgames','jvfus-justcoolgames','jvfus-gamesgt','jvfus-someflashgames','jvfus-playonlineforfree','jvfus-onlinegames777','jvfus-alldressupgames','jvfus-flashfilez','jvfus-razzling','jvfus-a1','jvfus-funcity','jvfus-gamessports','jvfus-gamehump','jvfus-onlinegamearcade','jvfus-smileygamer','jvfus-funnybox','jvfus-nachoflash','jvfus-videosarcade','jvfus-focalgame','jvfus-pureflashgames','jvfus-4newbs','jvfus-games2know','jvfus-gamepeach','jvfus-arcadepimps','jvfus-nutnbut','jvfus-readyforgames','jvfus-supergames','jvfus-flashgamewiz','jvfus-thunderarcade','jvfus-breakfun','jvfus-bestfreeonlinegames','jvfus-arcadeaddicts','jvfus-freshwebgames','jvfus-onlinegamescenter','jvfus-dressupkid','jvfus-dressuphot','jvfus-fungamelake','jvfus-youngarcadegames','jvfus-playcartoonnetwork','jvfus-dressupkiss','jvfus-dressuplake','jvfus-dressupgold','jvfus-bootyarcade');
+	} else if (promosite_origine == 'jvfit') {
+		var sites = new Array('jvfit-self');
+	} else {
+		var sites = new Array('jc-jvf','jc-tg_videos','jc-sport4fun','jc-th_concours','jc-wlm','jc-wlm_portable');
+	}
+	
+	var site = promosite_origine;
+	while (site == promosite_origine) {
+		temp = Math.random();		
+		temp = temp*sites.length;	
+		temp = Math.floor(temp);		
+	
+		var site = sites[temp]
+	}
+	
+	
+	if (autoRC('actionpromo') != 1) {
+		
+		autoCC('actionpromo',1,6);
+
+				// TOM'S GAMES
+				if (site == 'tg-riscbox' && autoRC('actionpromoriscbox-tg') != 1) {
+				autoCC('actionpromoriscbox-tg',1,1);
+				promosite = 'découvrez la Risc Box !';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-21269.php';	
+				}
+				else if (site == 'tg-canon-apn' && autoRC('actionpromocanon-apn-tg') != 1) {
+				autoCC('actionpromocanon-apn-tg',1,1);
+				promosite = 'découvrez comment choisir au mieux votre appareil photo numérique !';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-21268.php';	
+				}
+				else if (site == 'tg-concourswakfu' && autoRC('actionpromoconcourswakfu-tg') != 1) {
+				autoCC('actionpromoconcourswakfu-tg',1,1);
+				promosite = 'gagnez 10000 clés bêta-test Wakfu, une Xbox 360 Elite et des goodies Wakfu !';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20213.php';	
+				}
+				else if (site == 'tg-concourswakfu_2' && autoRC('actionpromoconcourswakfu_2-tg') != 1) {
+				autoCC('actionpromoconcourswakfu_2-tg',1,1);
+				promosite = 'gagnez une Xbox 360 Elite en cliquant sur OK !';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20306.php';	
+				}
+				else if (site == 'tg-lg' && autoRC('actionpromotg-lg') != 1) {
+				autoCC('actionpromotg-lg',1,1);
+				promosite = "découvrez une qualité d'image optimale!";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-19861.php';			
+				}
+				else if (site == 'tg-jc' && autoRC('actionpromojc-tg') != 1) {
+				autoCC('actionpromojc-tg',1,1);
+				promosite = 'découvrez JeuxCherche.com, le 1er moteur de recherche 100% jeu vidéo !';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-12927.php';			
+				}
+				else if (site == 'tg-jc' && autoRC('actionpromojc_3-tg') != 1) {
+				autoCC('actionpromojc_3-tg',1,1);
+				promosite = 'retrouvez plus de tests, astuces, téléchargements gratuits jeux vidéo avec JeuxCherche.com !';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20312.php';			
+				}
+				else if (site == 'tg-jc_2' && autoRC('actionpromojc_2-tg') != 1) {
+				autoCC('actionpromojc_2-tg',1,1);
+				promosite = 'accédez à tous les contenus jeux vidéo du Web francophone avec JeuxCherche.com !';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20309.php';			
+				}
+				else if (site == 'tg-video' && autoRC('actionpromovideo-tg') != 1) {
+				autoCC('actionpromovideo-tg',1,1);
+				promosite = "regardez gratuitement des milliers de vidéos !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-16488.php';			
+				}
+				else if (site == 'tg-jeuxportable' && autoRC('actionpromojeuxportable-tg') != 1) {
+				autoCC('actionpromojeuxportable-tg',1,1);
+				promosite = "téléchargez les plus grands jeux PC et Consoles sur votre mobile !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-19995.php';			
+				}
+				else if (site == 'tg-tg_concours' && autoRC('actionpromotg_concours-tg') != 1) {
+				autoCC('actionpromotg_concours-tg',1,1);
+				promosite = "gagnez un iPod et une Xbox 360 avec Tom's Games !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18987.php';			
+				}
+				else if (site == 'tg-tg_5euros' && autoRC('actionpromotg_5euros-tg') != 1) {
+				autoCC('actionpromotg_5euros-tg',1,1);
+				promosite = "5 Euros de jeux vidéo offerts en cliquant sur OK !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18251.php';			
+				}
+				else if (site == 'tg-tg' && autoRC('actionpromosport4fun-tg') != 1) {
+				autoCC('actionpromosport4fun-tg',1,1);
+				promosite = "jouez à des jeux en ligne et gagnez des points pour accumuler des cadeaux";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-16912.php';			
+				}
+				else if (site == 'tg-jingle' && autoRC('actionpromojingle-tg') != 1) {
+				autoCC('actionpromojingle-tg',1,1);
+				promosite = "découvrez Jingle Bells pour gagner plus de 25.0000 à de cadeaux";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-17017.php';			
+				}
+				else if (site == 'tg-prison' && autoRC('actionpromoprison-tg') != 1) {
+				autoCC('actionpromocanon-tg',1,1);
+				promosite = "téléchargez gratuitement l'écran de veille Prison Break";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-17018.php';			
+				}
+				else if (site == 'tg-tguide' && autoRC('actionpromotguide-tg') != 1) {
+				autoCC('actionpromotguide-tg',1,1);
+				promosite = "découvrez Tom's Guide, le guide high-tech pour tous";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-17186.php';			
+				}
+				else if (site == 'tg-wlm' && autoRC('actionpromowlm-tg') != 1) {
+				autoCC('actionpromowlm-tg',1,1);
+				promosite = "téléchargez la nouvelle version de Windows Live Messenger gratuitement en cliquant sur OK !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18660.php';			
+				}
+				else if (site == 'tg-wlm_portable' && autoRC('actionpromowlm_portable-tg') != 1) {
+				autoCC('actionpromowlm_portable-tg',1,1);
+				promosite = "téléchargez gratuitement Windows Live Messenger sur votre portable !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18254.php';			
+				}
+				else if (site == 'tg-optinclub' && autoRC('actionpromooptinclub-tg') != 1) {
+				autoCC('actionpromooptinclub-tg',1,1);
+				promosite = "gagnez GTA IV et Wiifit !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-19554.php';			
+				}
+				else if (site == 'tg-euro2008' && autoRC('actionpromoeuro2008-tg') != 1) {
+				autoCC('actionpromoeuro2008-tg',1,1);
+				promosite = "gagnez 3 Wii en pronostiquant l'Euro 2008 !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-19555.php';			
+				}
+				else if (site == 'tg-pixmania' && autoRC('actionpromopixmania-tg') != 1) {
+				autoCC('actionpromopixmania-tg',1,1);
+				promosite = "gagnez une télé HD 102cm, des iPod Nano et des GPS!";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-19581.php';			
+				}
+				else if (site == 'tg-butineo' && autoRC('actionpromobutineo-tg') != 1) {
+				autoCC('actionpromooptinclub-tg',1,1);
+				promosite = "gagnez le portable le plus fin du monde en cliquant sur OK !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18818.php';			
+				}
+				else if (site == 'tg-tguide_concours' && autoRC('actionpromotguide_concours-tg') != 1) {
+				autoCC('actionpromotguide_concours-tg',1,1);
+				promosite = "gagnez un écran plat 22 pouces sur Tom's Guide !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-19370.php';			
+				}
+				else if (site == 'tg-trophees' && autoRC('actionpromotrophees-tg') != 1) {
+				autoCC('actionpromotrophees-tg',1,1);
+				promosite = "élisez vos jeux préférés et gagnez une Wii !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-19488.php';			
+				}
+				else if (site == 'tg-jeuxenligne' && autoRC('actionpromojeuxenligne-tg') != 1) {
+				autoCC('actionpromojeuxenligne-tg',1,1);
+				promosite = "découvrez 60 nouveaux jeux en ligne gratuits !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20320.php';			
+				}
+				else if (site == 'tg-beijing_2008' && autoRC('actionpromobeijing2008-tg') != 1) {
+				autoCC('actionpromobeijing2008-tg',1,1);
+				promosite = "téléchargez Beijing 2008, le jeu vidéo officiel des J.O !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20428.php';			
+				}
+				else if (site == 'tg-jeuxenligne_2' && autoRC('actionpromojeuxenligne_2-tg') != 1) {
+				autoCC('actionpromojeuxenligne_2-tg',1,1);
+				promosite = "jouez gratuitement à Diner Dash, Mahjong, Luxor, Virtual Villagers et 50 autres jeux !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20321.php';			
+				}
+				else if (site == 'tg-envienumerique' && autoRC('actionpromoenvienumerique-tg') != 1) {
+				autoCC('actionpromoenvienumerique-tg',1,1);
+				promosite = "découvrez le site de toutes vos envies numériques !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-21098.php';			
+				}
+				else if (site == 'tg-cashpot' && autoRC('actionpromocashpot-tg') != 1) {
+				autoCC('actionpromocashpot-tg',1,1);
+				promosite = "gagnez une PS3, une télé Full HD, un Eee PC et 3.000 Euros de high-tech !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20906.php';			
+				}
+				else if (site == 'tg-parcatt' && autoRC('actionpromoparcatt-tg') != 1) {
+				autoCC('actionpromoparcatt-tg',1,1);
+				promosite = "créez votre parc d'attractions et gérez son développement : jeu gratuit !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-20999.php';			
+				}
+				else if (site == 'tg-elevagev' && autoRC('actionpromoelevagev-tg') != 1) {
+				autoCC('actionpromoelevagev-tg',1,1);
+				promosite = "créez votre élevage virtuel de 1 à 700 animaux : jeu gratuit !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-21001.php';			
+				}
+				else if (site == 'tg-terreurouest' && autoRC('actionpromoterreurouest-tg') != 1) {
+				autoCC('actionpromoterreurouest-tg',1,1);
+				promosite = "jouez les cow-boy et devenez la terreur de l'Ouest : jeu gratuit !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-21003.php';			
+				}
+				else if (site == 'tg-terreurmer' && autoRC('actionpromoterreurmer-tg') != 1) {
+				autoCC('actionpromoterreurmer-tg',1,1);
+				promosite = "incarnez un pirate et devenez la terreur des mers : jeu gratuit !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-21005.php';			
+				}
+				else if (site == 'tg-fermev' && autoRC('actionpromofermev-tg') != 1) {
+				autoCC('actionpromofermev-tg',1,1);
+				promosite = "créez votre ferme virtuelle et développez votre entreprise !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-21007.php';			
+				}
+				else if (site == 'tg-zoov' && autoRC('actionpromozoov-tg') != 1) {
+				autoCC('actionpromozoov-tg',1,1);
+				promosite = "lancez votre zoo virtuel et attirez des milliers de visiteurs !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-21009.php';			
+				}
+				else if (site == 'tg-envienumerique_mobilite' && autoRC('actionpromoenvienumerique_mobilite-tg') != 1) {
+				autoCC('actionpromoenvienumerique_mobilite-tg',1,1);
+        promosite = "découvrez comment emporter vos passions partout avec vous !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21123.php';
+				}
+				else if (site == 'tg-envienumerique_simplicite' && autoRC('actionpromoenvienumerique_simplicite-tg') != 1) {
+        autoCC('actionpromoenvienumerique_simplicite-tg',1,1);
+				promosite = "découvrez comment simplifier votre quotidien.";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21124.php';
+				}
+				else if (site == 'tg-envienumerique_professionnels' && autoRC('actionpromoenvienumerique_professionnels-tg') != 1) {
+				autoCC('actionpromoenvienumerique_professionnels-tg',1,1);
+    		promosite = "découvrez comment réussir professionnellement.";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21125.php';
+				}
+				else if (site == 'tg-nexway_avira' && autoRC('actionpromonexway_avira-tg') != 1) {
+				autoCC('actionpromonexway_avira-tg',1,1);
+        promosite = "téléchargez gratuitement la nouvelle version d'un des meilleurs anti-virus du marché !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21143.php';
+				}
+				else if (site == 'tg-canon' && autoRC('actionpromocanon-tg') != 1) {
+				autoCC('actionpromocanon-tg',1,1);
+        promosite = "découvrez comment choisir au mieux votre compact numérique Canon !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21545.php';
+				}
+				else if (site == 'tg-bigpoint-actionleague' && autoRC('actionpromobigpoint-actionleague-tg') != 1) {
+				autoCC('actionpromobigpoint-actionleague-tg',1,1);
+        promosite = "jouez gratuitement dans votre navigateur à un jeu de foot en 3D !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21599.php';
+				}								
+				else if (site == 'tg-bigpoint-darkorbit' && autoRC('actionpromobigpoint-darkorbit-tg') != 1) {
+				autoCC('actionpromobigpoint-darkorbit-tg',1,1);
+        promosite = "rejoignez 15 millions de joueurs dans un combat intergalactique trépidant : jeu gratuit !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21601.php';
+				}								
+				else if (site == 'tg-bigpoint-seafight' && autoRC('actionpromobigpoint-seafight-tg') != 1) {
+				autoCC('actionpromobigpoint-seafight-tg',1,1);
+        promosite = "prenez la tête d'une flotte de pirates et devenez la terreur des mers : jeu gratuit !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21602.php';
+				}								
+				else if (site == 'tg-bigpoint-spaceinvasion' && autoRC('actionpromobigpoint-spaceinvasion-tg') != 1) {
+				autoCC('actionpromobigpoint-spaceinvasion-tg',1,1);
+        promosite = "partez à la conquête de l'espace avec plus d'un million d'autres joueurs : jeu gratuit !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21604.php';
+				}								
+				else if (site == 'tg-bigpoint-xblaster' && autoRC('actionpromobigpoint-xblaster-tg') != 1) {
+				autoCC('actionpromobigpoint-xblaster-tg',1,1);
+        promosite = "fabriquez le Mech le plus puissant et affrontez des milliers d'autres joueurs !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21606.php';
+				}								
+				else if (site == 'tg-defifoot' && autoRC('actionpromodefifoot-tg') != 1) {
+				autoCC('actionpromodefifoot-tg',1,1);
+        promosite = "devenez entraîneur d'une équipe de foot et affrontez des milliers d'autres joueurs : jeu gratuit !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21610.php';
+				}								
+				else if (site == 'tg-11manager' && autoRC('actionpromo11manager-tg') != 1) {
+				autoCC('actionpromo11manager-tg',1,1);
+        promosite = "entrez dans la peau d'un manager d'équipe de foot : jeu gratuit !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21619.php';
+				}								
+				else if (site == 'tg-feerik-ageofmagic' && autoRC('actionpromofeerik-ageofmagic-tg') != 1) {
+				autoCC('actionpromofeerik-ageofmagic-tg',1,1);
+        promosite = "entrez dans la peau d'un manager d'équipe de foot : jeu gratuit !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21619.php';
+				}								
+				else if (site == 'tg-feerik-apprentisdieux' && autoRC('actionpromofeerik-apprentisdieux-tg') != 1) {
+				autoCC('actionpromofeerik-apprentisdieux-tg',1,1);
+        promosite = "incarnez un Dieu et créez votre planète : jeu gratuit !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21625.php';
+				}								
+				else if (site == 'tg-hotroads' && autoRC('actionpromohotroads-tg') != 1) {
+				autoCC('actionpromohotroads-tg',1,1);
+        promosite = "jouez à des courses de voitures en ligne avec des milliers d'autres joueurs : jeu gratuit !";
+        promourl = 'http://www.jeuxvideopc.com/sites/site-21634.php';
+				}								
+				
+				// JV-FLASH
+				if (site == 'jvf-jvpc' && autoRC('actionpromojvpc-jvf') != 1) {
+				autoCC('actionpromojvpc-jvf',1,12);
+				promosite = 'découvrez JeuxVideoPC.com, le site de référence des joueurs PC';
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-15715.php';	
+				}
+				else if (site == 'jvf-jc' && autoRC('actionpromojc-jvf') != 1) {
+				autoCC('actionpromojc-jvf',1,12);
+				promosite = 'accéde à tous les téléchargements gratuits et astuces de jeux vidéo sur JeuxCherche.com !';
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-15714.php';			
+				}
+				else if (site == 'jvf-jc_monzoo' && autoRC('actionpromojc_monzoo-jvf') != 1) {
+				autoCC('actionpromojc_monzoo-jvf',1,12);
+				promosite = 'ouvre ton zoo virtuel et deviens directeur de parc animalier !';
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-20311.php';			
+				}
+				else if (site == 'jvf-video' && autoRC('actionpromovideo-jvf') != 1) {
+				autoCC('actionpromovideo-jvf',1,12);
+				promosite = "regarde gratuitement des milliers de vidéos en cliquant sur OK !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-16490.php';			
+				}
+				else if (site == 'jvf-tomsguide' && autoRC('actionpromotomsguide-jvf') != 1) {
+				autoCC('actionpromotomsguide-jvf',1,12);
+				promosite = "découvrez Tom's Guide, le guide high-tech de référence";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-17047.php';					
+				}
+				else if (site == 'jvf-sport4fun' && autoRC('actionpromosport4fun-jvf') != 1) {
+				autoCC('sport4fun-jvf',1,12);
+				promosite = 'jouez à des jeux gratuits et gagnez des points pour recevoir des cadeaux';
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18750.php';			
+				}
+				else if (site == 'jvf-boursier' && autoRC('actionpromoboursier-jvf') != 1) {
+				autoCC('boursier-jvf',1,12);
+				promosite = 'découvrez Boursier.com pour suivre la bourse en direct et gérer au mieux votre argent';
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18749.php';			
+				}
+				else if (site == 'jvf-football' && autoRC('actionpromofootball-jvf') != 1) {
+				autoCC('football-jvf',1,12);
+				promosite = "suivez toute l'actu du football en direct";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18746.php';			
+				}
+				else if (site == 'jvf-lejdd' && autoRC('actionpromolejdd-jvf') != 1) {
+				autoCC('lejdd-jvf',1,12);
+				promosite = "suivez toute l'actualité nationale et internationale en ligne";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18748.php';			
+				}
+				else if (site == 'jvf-autonews' && autoRC('actionpromoautonews-jvf') != 1) {
+				autoCC('autonews-jvf',1,12);
+				promosite = "retrouvez toute l'actualité automobile en direct";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18747.php';			
+				}	
+				else if (site == 'jvf-jingle' && autoRC('actionpromojingle-jvf') != 1) {
+				autoCC('actionpromojingle-jvf',1,12);
+				promosite = "découvrez Jingle Bells : 25.0000 Euros de cadeaux à gagner !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-17038.php';			
+				}
+				else if (site == 'jvf-prison' && autoRC('actionpromoprison-jvf') != 1) {
+				autoCC('prison-jvf',1,12);
+				promosite = "téléchargez gratuitement l'écran de veille Prison Break";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-16939.php';			
+				}
+				else if (site == 'jvf-tg_concours' && autoRC('actionpromotg_concours-jvf') != 1) {
+				autoCC('actionpromotg_concours-jvf',1,12);
+				promosite = "gagnez un iPod, une Xbox 360 et des jeux vidéo sur Tom's Games !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18991.php';			
+				}
+				else if (site == 'jvf-tg2' && autoRC('actionpromotg2-jvf') != 1) {
+				autoCC('actionpromotg2-jvf',1,12);
+				promosite = "suivez l'actu des jeux à venir : Les Sims 3, PES 09, Wakfu, Fifa 09, Starcraft 2, Diablo 3...";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-20545.php';			
+				}
+				else if (site == 'jvf-tg_pc' && autoRC('actionpromotg_pc-jvf') != 1) {
+				autoCC('actionpromotg_pc-jvf',1,12);
+				promosite = "découvrez Tom's Games, la nouvelle référence jeux vidéo PC & Consoles !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-15715.php';			
+				}
+				else if (site == 'jvf-tguide' && autoRC('actiontguide-jvf') != 1) {
+				autoCC('actionpromotguide-jvf',1,12);
+				promosite = "découvrez Tom's Guide, le guide high-tech de référence";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-17170.php';			
+				}
+				else if (site == 'jvf-tguide_concours' && autoRC('actiontguide_concours-jvf') != 1) {
+				autoCC('actionpromotguide_concours-jvf',1,12);
+				promosite = "gagnez un écran plat 22 pouces et des coffrets week-end sur Tom's Guide !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-19369.php';			
+				}
+				else if (site == 'jvf-th_concours' && autoRC('actionpromoth_concours-jvf') != 1) {
+				autoCC('actionpromoth_concours-jvf',1,12);
+				promosite = "gagnez une Playstation 3 et des jeux vidéo sur Tom's Hardware !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18380.php';			
+				}
+				else if (site == 'jvf-optinclub' && autoRC('actionpromooptinclub-jvf') != 1) {
+				autoCC('actionpromooptinclub-jvf',1,12);
+				promosite = "gagne GTA IV et Wiifit !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-19556.php';			
+				}
+				else if (site == 'jvf-euro2008' && autoRC('actionpromoeuro2008-jvf') != 1) {
+				autoCC('actionpromoeuro2008-jvf',1,12);
+				promosite = "gagnez une Wii en pronostiquant l'Euro 2008 !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-19557.php';			
+				}
+				else if (site == 'jvf-pixmania' && autoRC('actionpromopixmania-jvf') != 1) {
+				autoCC('actionpromopixmania-jvf',1,12);
+				promosite = "gagnez une télé HD 102cm, des iPod Nano et des portables !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-19582.php';			
+				}
+				else if (site == 'jvf-wlm' && autoRC('actionpromowlm-jvf') != 1) {
+				autoCC('actionpromowlm-jvf',1,12);
+				promosite = "télécharge gratuitement la nouvelle version de Windows Live Messenger !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18659.php';			
+				}
+				else if (site == 'jvf-wlm_portable' && autoRC('actionpromowlm_portable-jvf') != 1) {
+				autoCC('actionpromowlm_portable-jvf',1,12);
+				promosite = "télécharge gratuitement Windows Live Messenger sur ton portable !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18074.php';			
+				}
+				else if (site == 'jvf-butineo' && autoRC('actionpromobutineo-jvf') != 1) {
+				autoCC('actionpromobutineo-jvf',1,12);
+				promosite = "gagnez le portable le plus fin du Monde : cliquez sur OK !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-18819.php';			
+				}
+				else if (site == 'jvf-beijing_2008' && autoRC('actionpromobeijing2008-jvf') != 1) {
+				autoCC('actionpromobeijing2008-jvf',1,1);
+				promosite = "téléchargez Beijing 2008, le jeu vidéo officiel des J.O !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-20429.php';			
+				}
+				else if (site == 'jvf-trophees' && autoRC('actionpromotrophees-jvf') != 1) {
+				autoCC('actionpromotrophees-jvf',1,12);
+				promosite = "élisez vos jeux préférés et gagnez une Wii !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-19490.php';			
+				}
+				else if (site == 'jvf-chapatiz' && autoRC('actionpromochapatiz-jvf') != 1) {
+				autoCC('actionpromochapatiz-jvf',1,12);
+				promosite = "crée ton perso virtuel, puis vient chatter et jouer à des jeux : 900.000 jeunes t'attendent !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-20928.php';			
+				}
+				else if (site == 'jvf-parcatt' && autoRC('actionpromoparcatt-jvf') != 1) {
+				autoCC('actionpromoparcatt-jvf',1,12);
+				promosite = "crée ton parc d'attractions virtuel et deviens le roi des montagnes russes !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-21000.php';			
+				}
+				else if (site == 'jvf-elevagev' && autoRC('actionpromoelevagev-jvf') != 1) {
+				autoCC('actionpromoelevagev-jvf',1,12);
+				promosite = "crée ton élevage virtuel : plus de 700 animaux t'attendent !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-21002.php';			
+				}
+				else if (site == 'jvf-terreurouest' && autoRC('actionpromoterreurouest-jvf') != 1) {
+				autoCC('actionpromoterreurouest-jvf',1,12);
+				promosite = "pars à la conquête de l'Ouest, et deviens le cow-boy le plus redouté !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-21004.php';			
+				}
+				else if (site == 'jvf-terreurmer' && autoRC('actionpromoterreurmer-jvf') != 1) {
+				autoCC('actionpromoterreurmer-jvf',1,12);
+				promosite = "incarne un pirate et domine les mers du monde : jeu gratuit !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-21006.php';			
+				}
+				else if (site == 'jvf-fermev' && autoRC('actionpromofermev-jvf') != 1) {
+				autoCC('actionpromofermev-jvf',1,12);
+				promosite = "crée ta ferme virtuelle et éléve des animaux !";
+				promourl = 'http://www.jeuxvideo-flash.com/sites/site-21008.php';			
+				}
+				else if (site == 'jvf-bigpoint-actionleague' && autoRC('actionpromobigpoint-actionleague-jvf') != 1) {
+				autoCC('actionpromobigpoint-actionleague-jvf',1,1);
+        promosite = "joue au foot ou au basket : jeux gratuits sans téléchargement !";
+        promourl = 'http://www.jeuxvideo-flash.com/sites/site-21600.php';
+				}
+				else if (site == 'jvf-bigpoint-seafight' && autoRC('actionpromobigpoint-seafight-jvf') != 1) {
+				autoCC('actionpromobigpoint-seafight-jvf',1,1);
+        promosite = "prends la tête d'une flotte de pirates et deviens une terreur des mers : jeu gratuit !";
+        promourl = 'http://www.jeuxvideo-flash.com/sites/site-21603.php';
+				}
+				else if (site == 'jvf-bigpoint-spaceinvasion' && autoRC('actionpromobigpoint-spaceinvasion-jvf') != 1) {
+				autoCC('actionpromobigpoint-spaceinvasion-jvf',1,1);
+        promosite = "participe à la conquête de l'espace aux côtés d'un million d'autres joueurs : jeu gratuit !";
+        promourl = 'http://www.jeuxvideo-flash.com/sites/site-21605.php';
+				}
+				else if (site == 'jvf-bebevallee' && autoRC('actionpromobebevallee-jvf') != 1) {
+				autoCC('actionpromobebevallee-jvf',1,1);
+        promosite = "adopte un bébé virtuel, fais-le grandir et envoie-le à l'école : jeu gratuit !";
+        promourl = 'http://www.jeuxvideo-flash.com/sites/site-21609.php';
+				}
+				else if (site == 'jvf-poneyacademy' && autoRC('actionpromoponeyacademy-jvf') != 1) {
+				autoCC('actionpromoponeyacademy-jvf',1,1);
+        promosite = "élève un poney virtuel, soigne-le, participe à des concours équestres : jeu gratuit !";
+        promourl = 'http://www.jeuxvideo-flash.com/sites/site-21628.php';
+				}
+				else if (site == 'jvf-nexway_avira' && autoRC('actionpromonexway_avira-jvf') != 1) {
+				autoCC('actionpromonexway_avira-jvf',1,1);
+        promosite = "téléchargez gratuitement la derniére version d'Antivir, un des meilleurs antivirus actuels !";
+        promourl = 'http://www.jeuxvideo-flash.com/sites/site-21144.php';
+				}
+				
+				// JV-FLASH US 
+				if (site == 'jvfus-self' && autoRC('actionpromo-jvfus') != 1) {
+				autoCC('actionpromo-jvfus',1,12);
+				promosite = 'Do you want to manage your football team ?';
+				promourl = 'http://www.tomsgames.com/site-21457.php';	
+				}
+				else if (site == 'jvfus-fishflashgames' && autoRC('actionpromofishflashgames-jvfus') != 1) {
+					autoCC('actionpromofishflashgames-jvfus',1,1);
+					promosite = "Play Free Online Games at our Partner FishFlashGames";
+					promourl = 'http://www.tomsgames.com/site/site-21785.php'}
+				else if (site == 'jvfus-gamesfreak' && autoRC('actionpromogamesfreak-jvfus') != 1) {
+					autoCC('actionpromogamesfreak-jvfus',1,1);
+					promosite = "Discover GamesFreak and its dozens of exciting car flash games !";
+					promourl = 'http://www.tomsgames.com/site/site-21786.php'}
+				else if (site == 'jvfus-thorgaming' && autoRC('actionpromothorgaming-jvfus') != 1) {
+					autoCC('actionpromothorgaming-jvfus',1,1);
+					promosite = "Enjoy a wide variety of viral flash games. From action to sports we have it all !";
+					promourl = 'http://www.tomsgames.com/site/site-21787.php'}
+				else if (site == 'jvfus-drivearcade' && autoRC('actionpromodrivearcade-jvfus') != 1) {
+					autoCC('actionpromodrivearcade-jvfus',1,1);
+					promosite = "Visit our partner DriveArcade.com, tons of great car games here !";
+					promourl = 'http://www.tomsgames.com/site/site-21789.php'}
+				else if (site == 'jvfus-igirlgames' && autoRC('actionpromoigirlgames-jvfus') != 1) {
+					autoCC('actionpromoigirlgames-jvfus',1,1);
+					promosite = "Dress Up Games for Girls Who Love Fashion HERE !";
+					promourl = 'http://www.tomsgames.com/site/site-21790.php'}
+				else if (site == 'jvfus-gameshot' && autoRC('actionpromogameshot-jvfus') != 1) {
+					autoCC('actionpromogameshot-jvfus',1,1);
+					promosite = "Free Online Arcade Games at GameShot.org";
+					promourl = 'http://www.tomsgames.com/site/site-21791.php'}
+				else if (site == 'jvfus-bumarcade' && autoRC('actionpromobumarcade-jvfus') != 1) {
+					autoCC('actionpromobumarcade-jvfus',1,1);
+					promosite = "BumArcade - Fun Games and cool Games For Free";
+					promourl = 'http://www.tomsgames.com/site/site-21792.php'}
+				else if (site == 'jvfus-mariogames1' && autoRC('actionpromomariogames1-jvfus') != 1) {
+					autoCC('actionpromomariogames1-jvfus',1,1);
+					promosite = "Discover MarioGames1 and its dozens of exciting Mario flash games !";
+					promourl = 'http://www.tomsgames.com/site/site-21793.php'}
+				else if (site == 'jvfus-animixgames' && autoRC('actionpromoanimixgames-jvfus') != 1) {
+					autoCC('actionpromoanimixgames-jvfus',1,1);
+					promosite = "Play The Most Exciting Car Games at AniMixgames.com";
+					promourl = 'http://www.tomsgames.com/site/site-21794.php'}
+				else if (site == 'jvfus-gameprison' && autoRC('actionpromogameprison-jvfus') != 1) {
+					autoCC('actionpromogameprison-jvfus',1,1);
+					promosite = "Great Flash Games available on GamePrison.com";
+					promourl = 'http://www.tomsgames.com/site/site-21795.php'}
+				else if (site == 'jvfus-twilightgamer' && autoRC('actionpromotwilightgamer-jvfus') != 1) {
+					autoCC('actionpromotwilightgamer-jvfus',1,1);
+					promosite = "Free Online Games To Play for Free with Twillightgamer.com";
+					promourl = 'http://www.tomsgames.com/site/site-21796.php'}
+				else if (site == 'jvfus-koalafun' && autoRC('actionpromokoalafun-jvfus') != 1) {
+					autoCC('actionpromokoalafun-jvfus',1,1);
+					promosite = "Play Cool games Online with KoalaFun.comfo";
+					promourl = 'http://www.tomsgames.com/site/site-21797.php'}
+				else if (site == 'jvfus-gameshockers' && autoRC('actionpromogameshockers-jvfus') != 1) {
+					autoCC('actionpromogameshockers-jvfus',1,1);
+					promosite = "GameShockers.com has thousands of Cool Flash Games and Free Online Games Free Addicting Flash and Shockwave Games";
+					promourl = 'http://www.tomsgames.com/site/site-21798.php'}
+				else if (site == 'jvfus-benz' && autoRC('actionpromobenz-jvfus') != 1) {
+					autoCC('actionpromobenz-jvfus',1,1);
+					promosite = "Flash games creation : play online over 3000 games !";
+					promourl = 'http://www.tomsgames.com/site/site-21799.php'}
+				else if (site == 'jvfus-nuclearcentury' && autoRC('actionpromonuclearcentury-jvfus') != 1) {
+					autoCC('actionpromonuclearcentury-jvfus',1,1);
+					promosite = "Are you bored ? Check out these games and videos !";
+					promourl = 'http://www.tomsgames.com/site/site-21800.php'}
+				else if (site == 'jvfus-girlsgames1' && autoRC('actionpromogirlsgames1-jvfus') != 1) {
+					autoCC('actionpromogirlsgames1-jvfus',1,1);
+					promosite = "Girls Games Barbie Cooking Make Up Celebrity Dress Up Wedding Painting Kids Fashion Dollhouse Room Sue Funny Bratz Games";
+					promourl = 'http://www.tomsgames.com/site/site-21801.php'}
+				else if (site == 'jvfus-arcadereign' && autoRC('actionpromoarcadereign-jvfus') != 1) {
+					autoCC('actionpromoarcadereign-jvfus',1,1);
+					promosite = "The Reign of the Arcade has come! Free Arcade Games, Action, Adventure, Shooting, Fighting, Highscores and more Free Online Games to play in a Medieval ambience";
+					promourl = 'http://www.tomsgames.com/site/site-21802.php'}
+				else if (site == 'jvfus-cafacafe' && autoRC('actionpromocafacafe-jvfus') != 1) {
+					autoCC('actionpromocafacafe-jvfus',1,1);
+					promosite = "Discover Cafacafe Games and its dozens of exciting flash games !";
+					promourl = 'http://www.tomsgames.com/site/site-21803.php'}
+				else if (site == 'jvfus-swgamers' && autoRC('actionpromoswgamers-jvfus') != 1) {
+					autoCC('actionpromoswgamers-jvfus',1,1);
+					promosite = "Free Shockwave Games, Play Now !";
+					promourl = 'http://www.tomsgames.com/site/site-21804.php'}
+				else if (site == 'jvfus-girlsgames' && autoRC('actionpromogirlsgames-jvfus') != 1) {
+					autoCC('actionpromogirlsgames-jvfus',1,1);
+					promosite = "Visit our partner TheGirlsGames.com, tons of great girls games here !";
+					promourl = 'http://www.tomsgames.com/site/site-21805.php'}
+				else if (site == 'jvfus-igirlsgames2' && autoRC('actionpromoigirlsgames2-jvfus') != 1) {
+					autoCC('actionpromoigirlsgames2-jvfus',1,1);
+					promosite = "Play tons of online free dress up games with our partner IGirlsGames.com";
+					promourl = 'http://www.tomsgames.com/site/site-21806.php'}
+				else if (site == 'jvfus-rawcade' && autoRC('actionpromorawcade-jvfus') != 1) {
+					autoCC('actionpromorawcade-jvfus',1,1);
+					promosite = "With our partner rawcade, play free games, hot games, online games";
+					promourl = 'http://www.tomsgames.com/site/site-21807.php'}
+				else if (site == 'jvfus-zoopgames' && autoRC('actionpromozoopgames-jvfus') != 1) {
+					autoCC('actionpromozoopgames-jvfus',1,1);
+					promosite = "Multiplayer Flash Games Online Free Arcade Games";
+					promourl = 'http://www.tomsgames.com/site/site-21808.php'}
+				else if (site == 'jvfus-xitigames' && autoRC('actionpromoxitigames-jvfus') != 1) {
+					autoCC('actionpromoxitigames-jvfus',1,1);
+					promosite = "Xiti Games is a site and an online community for those in love with Online Flash Games. ...!";
+					promourl = 'http://www.tomsgames.com/site/site-21814.php'}
+				else if (site == 'jvfus-arcadequest' && autoRC('actionpromoarcadequest-jvfus') != 1) {
+					autoCC('actionpromoearcade-jvfus',1,1);
+					promosite = "Over 3600 free games on Arcade Quest";
+					promourl = 'http://www.tomsgames.com/site/site-21815.php'}
+				else if (site == 'jvfus-earcade' && autoRC('actionpromoearcade-jvfus') != 1) {
+					autoCC('actionpromoearcade-jvfus',1,1);
+					promosite = "Great Arcade Games on eArcade, Play Now";
+					promourl = 'http://www.tomsgames.com/site/site-21816.php'}
+				else if (site == 'jvfus-freeflashgamearcade' && autoRC('actionpromofreeflashgamearcade-jvfus') != 1) {
+					autoCC('actionpromofreeflashgamearcade-jvfus',1,1);
+					promosite = "Play the best free online games";
+					promourl = 'http://www.tomsgames.com/site/site-21817.php'}
+				else if (site == 'jvfus-onlinefreegaming' && autoRC('actionpromoonlinefreegaming-jvfus') != 1) {
+					autoCC('actionpromoonlinefreegaming-jvfus',1,1);
+					promosite = "Play the best free online games on Online Free Gaming";
+					promourl = 'http://www.tomsgames.com/site/site-21818.php'}
+				else if (site == 'jvfus-pbmcube' && autoRC('actionpromopbmcube-jvfus') != 1) {
+					autoCC('actionpromopbmcube-jvfus',1,1);
+					promosite = "Play free online games - free game downloads";
+					promourl = 'http://www.tomsgames.com/site/site-21819.php'}
+				else if (site == 'jvfus-coolarcade' && autoRC('actionpromocoolarcade-jvfus') != 1) {
+					autoCC('actionpromocoolarcade-jvfus',1,1);
+					promosite = "Online Games - Cool Online Arcade - Play Cool Games";
+					promourl = 'http://www.tomsgames.com/site/site-21820.php'}
+				else if (site == 'jvfus-playhitgames' && autoRC('actionpromoplayhitgames-jvfus') != 1) {
+					autoCC('actionpromoplayhitgames-jvfus',1,1);
+					promosite = "Hit Games only_Play Great Free Online Games";
+					promourl = 'http://www.tomsgames.com/site/site-21821.php'}
+				else if (site == 'jvfus-gamecaddy' && autoRC('actionpromogamecaddy-jvfus') != 1) {
+					autoCC('actionpromogamecaddy-jvfus',1,1);
+					promosite = "Play tons of great free online games at Game Caddy";
+					promourl = 'http://www.tomsgames.com/site/site-21822.php'}
+				else if (site == 'jvfus-playthem' && autoRC('actionpromoplaythem-jvfus') != 1) {
+					autoCC('actionpromoplaythem-jvfus',1,1);
+					promosite = "Playthem.net | Fun online games community!";
+					promourl = 'http://www.tomsgames.com/site/site-21823.php'}
+				else if (site == 'jvfus-flashgameasylum' && autoRC('actionpromoflashgameasylum-jvfus') != 1) {
+					autoCC('actionpromoflashgameasylum-jvfus',1,1);
+					promosite = "Come dicover new online games at Flash Game Asylum !";
+					promourl = 'http://www.tomsgames.com/site/site-21824.php'}
+				else if (site == 'jvfus-sanitariumgames' && autoRC('actionpromosanitariumgames-jvfus') != 1) {
+					autoCC('actionpromosanitariumgames-jvfus',1,1);
+					promosite = "Come Play Crazy Games at Sanitarium Games !";
+					promourl = 'http://www.tomsgames.com/site/site-21825.php'}
+				else if (site == 'jvfus-toolight' && autoRC('actionpromotoolight-jvfus') != 1) {
+					autoCC('actionpromotoolight-jvfus',1,1);
+					promosite = "A lof of free online flash, shockwave games. Action, 3D, Multiplayer, Puzzles and more.";
+					promourl = 'http://www.tomsgames.com/site/site-21826.php'}
+				else if (site == 'jvfus-gamecutter' && autoRC('actionpromogamecutter-jvfus') != 1) {
+					autoCC('actionpromogamecutter-jvfus',1,1);
+					promosite = "Great selection of free online games with our partner Game Gutter";
+					promourl = 'http://www.tomsgames.com/site/site-21827.php'}
+				else if (site == 'jvfus-hotflashgames' && autoRC('actionpromohotflashgames-jvfus') != 1) {
+					autoCC('actionpromohotflashgames-jvfus',1,1);
+					promosite = "Free Online Games at Hot Flash Games!";
+					promourl = 'http://www.tomsgames.com/site/site-21828.php'}
+				else if (site == 'jvfus-freecasualgames' && autoRC('actionpromofreecasualgames-jvfus') != 1) {
+					autoCC('actionpromofreecasualgames-jvfus',1,1);
+					promosite = "Play free games, casual games, online games, web games and flash games at FreeCasualGames.com";
+					promourl = 'http://www.tomsgames.com/site/site-21829.php'}
+				else if (site == 'jvfus-fatalgames' && autoRC('actionpromofatalgames-jvfus') != 1) {
+					autoCC('actionpromofatalgames-jvfus',1,1);
+					promosite = "Fatal Games has the hottest racing, shooting, adventure, sports and action online games";
+					promourl = 'http://www.tomsgames.com/site/site-21830.php'}
+				else if (site == 'jvfus-dressupus' && autoRC('actionpromodressupus-jvfus') != 1) {
+					autoCC('actionpromodressupus-jvfus',1,1);
+					promosite = "Great Dress up games at DressUpUs.com !";
+					promourl = 'http://www.tomsgames.com/site/site-21831.php'}
+				else if (site == 'jvfus-idolgames' && autoRC('actionpromoidolgames-jvfus') != 1) {
+					autoCC('actionpromoidolgames-jvfus',1,1);
+					promosite = "Play free online games at IdolGames.com";
+					promourl = 'http://www.tomsgames.com/site/site-21832.php'}
+				else if (site == 'jvfus-imbagames' && autoRC('actionpromoimbagames-jvfus') != 1) {
+					autoCC('actionpromoimbagames-jvfus',1,1);
+					promosite = "Imbagames.com - Free online games - Play Free Games Now";
+					promourl = 'http://www.tomsgames.com/site/site-21833.php'}
+				else if (site == 'jvfus-kidgames4free' && autoRC('actionpromokidgames4free-jvfus') != 1) {
+					autoCC('actionpromokidgames4free-jvfus',1,1);
+					promosite = "Free Online Kids Games at KidsGames4Free.com !";
+					promourl = 'http://www.tomsgames.com/site/site-21834.php'}
+				else if (site == 'jvfus-gamelist' && autoRC('actionpromogamelist-jvfus') != 1) {
+					autoCC('actionpromogamelist-jvfus',1,1);
+					promosite = "Gamelist.eu Free Arcade Flash Games_ Play Free Games";
+					promourl = 'http://www.tomsgames.com/site/site-21835.php'}
+				else if (site == 'jvfus-topgirlsgames' && autoRC('actionpromotopgirlsgames-jvfus') != 1) {
+					autoCC('actionpromotopgirlsgames-jvfus',1,1);
+					promosite = "free online Girl Dress Up Games at TopGirlGames.net";
+					promourl = 'http://www.tomsgames.com/site/site-21836.php'}
+				else if (site == 'jvfus-champarcade' && autoRC('actionpromochamparcade-jvfus') != 1) {
+					autoCC('actionpromochamparcade-jvfus',1,1);
+					promosite = "Adding The Buzz to Free Online Gamez";
+					promourl = 'http://www.tomsgames.com/site/site-21837.php'}
+				else if (site == 'jvfus-everyflashgames' && autoRC('actionpromoeveryflashgames-jvfus') != 1) {
+					autoCC('actionpromoeveryflashgames-jvfus',1,1);
+					promosite = "Cool Online games at EveryFlashGames.com";
+					promourl = 'http://www.tomsgames.com/site/site-21838.php'}
+				else if (site == 'jvfus-justcoolgames' && autoRC('actionpromojustcoolgames-jvfus') != 1) {
+					autoCC('actionpromojustcoolgames-jvfus',1,1);
+					promosite = "Play Cool games Online with JustCoolGames.com";
+					promourl = 'http://www.tomsgames.com/site/site-21839.php'}
+				else if (site == 'jvfus-gamesgt' && autoRC('actionpromogamesgt-jvfus') != 1) {
+					autoCC('actionpromogamesgt-jvfus',1,1);
+					promosite = "Play free online games at GamesGT.com";
+					promourl = 'http://www.tomsgames.com/site/site-21840.php'}
+				else if (site == 'jvfus-someflashgames' && autoRC('actionpromosomeflashgames-jvfus') != 1) {
+					autoCC('actionpromosomeflashgames-jvfus',1,1);
+					promosite = "MySpace Games for your profile at SomeFlashGames.com !";
+					promourl = 'http://www.tomsgames.com/site/site-21841.php'}
+				else if (site == 'jvfus-playonlineforfree' && autoRC('actionpromoplayonlineforfree-jvfus') != 1) {
+					autoCC('actionpromoplayonlineforfree-jvfus',1,1);
+					promosite = "Play Free Flash Arcade Games at PlayOnlineForFree.com";
+					promourl = 'http://www.tomsgames.com/site/site-21842.php'}
+				else if (site == 'jvfus-onlinegames777' && autoRC('actionpromoonlinegames777-jvfus') != 1) {
+					autoCC('actionpromoonlinegames777-jvfus',1,1);
+					promosite = "Play tons of great free online games at OnlineGames777.com";
+					promourl = 'http://www.tomsgames.com/site/site-21843.php'}
+				else if (site == 'jvfus-alldressupgames' && autoRC('actionpromoalldressupgames-jvfus') != 1) {
+					autoCC('actionpromoalldressupgames-jvfus',1,1);
+					promosite = "Dress Up Games for Girls Who Love Fashion";
+					promourl = 'http://www.tomsgames.com/site/site-21844.php'}
+				else if (site == 'jvfus-flashfilez' && autoRC('actionpromoflashfilez-jvfus') != 1) {
+					autoCC('actionpromoflashfilez-jvfus',1,1);
+					promosite = "Cool Games To Play Online At FlashFilez.com";
+					promourl = 'http://www.tomsgames.com/site/site-21845.php'}
+				else if (site == 'jvfus-razzling' && autoRC('actionpromorazzling-jvfus') != 1) {
+					autoCC('actionpromorazzling-jvfus',1,1);
+					promosite = "Free Online Games and Flash Games at Razzling.com";
+					promourl = 'http://www.tomsgames.com/site/site-21846.php'}
+				else if (site == 'jvfus-a1' && autoRC('actionpromoa1-jvfus') != 1) {
+					autoCC('actionpromoa1-jvfus',1,1);
+					promosite = "A1 Free Games Online Game Arcade";
+					promourl = 'http://www.tomsgames.com/site/site-21847.php'}
+				else if (site == 'jvfus-funcity' && autoRC('actionpromofuncity-jvfus') != 1) {
+					autoCC('actionpromofuncity-jvfus',1,1);
+					promosite = "Play all sorts of games at Fun City Online Games";
+					promourl = 'http://www.tomsgames.com/site/site-21848.php'}
+				else if (site == 'jvfus-gamessports' && autoRC('actionpromogamessports-jvfus') != 1) {
+					autoCC('actionpromogamessports-jvfus',1,1);
+					promosite = "Only Sports Games at GamesSports.com";
+					promourl = 'http://www.tomsgames.com/site/site-21849.php'}
+				else if (site == 'jvfus-gamehump' && autoRC('actionpromogamehump-jvfus') != 1) {
+					autoCC('actionpromogamehump-jvfus',1,1);
+					promosite = "Free flash games and Hot funny videos for you at GameHump.com";
+					promourl = 'http://www.tomsgames.com/site/site-21850.php'}
+				else if (site == 'jvfus-onlinegamearcade' && autoRC('actionpromoonlinegamearcade-jvfus') != 1) {
+					autoCC('actionpromoonlinegamearcade-jvfus',1,1);
+					promosite = "Play Great Arcade Games at OnlineGameArcade.com !";
+					promourl = 'http://www.tomsgames.com/site/site-21851.php'}
+				else if (site == 'jvfus-smileygamer' && autoRC('actionpromosmileygamer-jvfus') != 1) {
+					autoCC('actionpromosmileygamer-jvfus',1,1);
+					promosite = "The best Match 3 and Puzzle games at SmileyGamer.com";
+					promourl = 'http://www.tomsgames.com/site/site-21852.php'}
+				else if (site == 'jvfus-funnybox' && autoRC('actionpromofunnybox-jvfus') != 1) {
+					autoCC('actionpromofunnybox-jvfus',1,1);
+					promosite = "The Funny Box - Free Online Flash games.";
+					promourl = 'http://www.tomsgames.com/site/site-21853.php'}
+				else if (site == 'jvfus-nachoflash' && autoRC('actionpromonachoflash-jvfus') != 1) {
+					autoCC('actionpromonachoflash-jvfus',1,1);
+					promosite = "Nacho Flash & Anime Flash Games, Flash Movies to Play for Free !";
+					promourl = 'http://www.tomsgames.com/site/site-21854.php'}
+				else if (site == 'jvfus-videosarcade' && autoRC('actionpromovideosarcade-jvfus') != 1) {
+					autoCC('actionpromovideosarcade-jvfus',1,1);
+					promosite = "Free games online with action, puzzle, card, casino, shooting, racing games and videos";
+					promourl = 'http://www.tomsgames.com/site/site-21855.php'}
+				else if (site == 'jvfus-focalgame' && autoRC('actionpromofocalgame-jvfus') != 1) {
+					autoCC('actionpromofocalgame-jvfus',1,1);
+					promosite = "Fun Free Online Flash games for downloading";
+					promourl = 'http://www.tomsgames.com/site/site-21856.php'}
+				else if (site == 'jvfus-pureflashgames' && autoRC('actionpromopureflashgames-jvfus') != 1) {
+					autoCC('actionpromopureflashgames-jvfus',1,1);
+					promosite = "Pure Flash Games & Free Online Flash Games";
+					promourl = 'http://www.tomsgames.com/site/site-21857.php'}
+				else if (site == 'jvfus-4newbs' && autoRC('actionpromo4newbs-jvfus') != 1) {
+					autoCC('actionpromo4newbs-jvfus',1,1);
+					promosite = "Play Great and Funny Games at  4newbs.com";
+					promourl = 'http://www.tomsgames.com/site/site-21858.php'}
+				else if (site == 'jvfus-games2know' && autoRC('actionpromogames2know-jvfus') != 1) {
+					autoCC('actionpromogames2know-jvfus',1,1);
+					promosite = "Comme see Cool Arcade Games at Games2Know.com !";
+					promourl = 'http://www.tomsgames.com/site/site-21859.php'}
+				else if (site == 'jvfus-gamepeach' && autoRC('actionpromogamepeach-jvfus') != 1) {
+					autoCC('actionpromogamepeach-jvfus',1,1);
+					promosite = "GamePeach.com - Best free flash games online!";
+					promourl = 'http://www.tomsgames.com/site/site-21860.php'}
+				else if (site == 'jvfus-arcadepimps' && autoRC('actionpromoarcadepimps-jvfus') != 1) {
+					autoCC('actionpromoarcadepimps-jvfus',1,1);
+					promosite = "Arcade Pimps & MySpace games, Free Online Games, Free Flash Arcade";
+					promourl = 'http://www.tomsgames.com/site/site-21861.php'}
+				else if (site == 'jvfus-nutnbut' && autoRC('actionpromonutnbut-jvfus') != 1) {
+					autoCC('actionpromonutnbut-jvfus',1,1);
+					promosite = "Play Racing Games at NutnBut and Have Fun!";
+					promourl = 'http://www.tomsgames.com/site/site-21862.php'}
+				else if (site == 'jvfus-readyforgames' && autoRC('actionpromoreadyforgames-jvfus') != 1) {
+					autoCC('actionpromoreadyforgames-jvfus',1,1);
+					promosite = "Cool Games To Play Online At ReadyForGames.com";
+					promourl = 'http://www.tomsgames.com/site/site-21863.php'}
+				else if (site == 'jvfus-supergames' && autoRC('actionpromosupergames-jvfus') != 1) {
+					autoCC('actionpromosupergames-jvfus',1,1);
+					promosite = "Heeps of fun to keep you occupied HERE !";
+					promourl = 'http://www.tomsgames.com/site/site-21864.php'}
+				else if (site == 'jvfus-flashgamewiz' && autoRC('actionpromoflashgamewiz-jvfus') != 1) {
+					autoCC('actionpromoflashgamewiz-jvfus',1,1);
+					promosite = "Online Free Flash Games at FlashGameWiz.com";
+					promourl = 'http://www.tomsgames.com/site/site-21865.php'}
+				else if (site == 'jvfus-thunderarcade' && autoRC('actionpromothunderarcade-jvfus') != 1) {
+					autoCC('actionpromothunderarcade-jvfus',1,1);
+					promosite = "Thunder Arcade - Best Site For Free Online Flash Games";
+					promourl = 'http://www.tomsgames.com/site/site-21866.php'}
+				else if (site == 'jvfus-breakfun' && autoRC('actionpromobreakfun-jvfus') != 1) {
+					autoCC('actionpromobreakfun-jvfus',1,1);
+					promosite = "Have some Fun, Have a Break at BreakFun.com";
+					promourl = 'http://www.tomsgames.com/site/site-21867.php'}
+				else if (site == 'jvfus-bestfreeonlinegames' && autoRC('actionpromobestfreeonlinegames-jvfus') != 1) {
+					autoCC('actionpromobestfreeonlinegames-jvfus',1,1);
+					promosite = "Great selection of free online games with our partner BestFreeOnlineGames.biz";
+					promourl = 'http://www.tomsgames.com/site/site-21868.php'}
+				else if (site == 'jvfus-arcadeaddicts' && autoRC('actionpromoarcadeaddicts-jvfus') != 1) {
+					autoCC('actionpromoarcadeaddicts-jvfus',1,1);
+					promosite = "Over 27010 Addicting Arcade Games at ArcadeAddicts.com";
+					promourl = 'http://www.tomsgames.com/site/site-21869.php'}
+				else if (site == 'jvfus-freshwebgames' && autoRC('actionpromofreshwebgames-jvfus') != 1) {
+					autoCC('actionpromofreshwebgames-jvfus',1,1);
+					promosite = "Really fresh online games everyday at FreshWebGames !";
+					promourl = 'http://www.tomsgames.com/site/site-21870.php'}
+				else if (site == 'jvfus-onlinegamescenter' && autoRC('actionpromoonlinegamescenter-jvfus') != 1) {
+					autoCC('actionpromoonlinegamescenter-jvfus',1,1);
+					promosite = "Play all sorts of games at OnlineGames-Center.com";
+					promourl = 'http://www.tomsgames.com/site/site-21871.php'}
+				else if (site == 'jvfus-dressupkid' && autoRC('actionpromodressupkid-jvfus') != 1) {
+					autoCC('actionpromodressupkid-jvfus',1,1);
+					promosite = "Free Games For Kids at DressUpKid.com/";
+					promourl = 'http://www.tomsgames.com/site/site-21872.php'}
+				else if (site == 'jvfus-dressuphot' && autoRC('actionpromodressuphot-jvfus') != 1) {
+					autoCC('actionpromodressuphot-jvfus',1,1);
+					promosite = "Hot dress up games at DressUpHot.com";
+					promourl = 'http://www.tomsgames.com/site/site-21873.php'}
+				else if (site == 'jvfus-fungamelake' && autoRC('actionpromofungamelake-jvfus') != 1) {
+					autoCC('actionpromofungamelake-jvfus',1,1);
+					promosite = "Most Fun Games at FunGameLake.com";
+					promourl = 'http://www.tomsgames.com/site/site-21874.php'}
+				else if (site == 'jvfus-youngarcadegames' && autoRC('actionpromoyoungarcadegames-jvfus') != 1) {
+					autoCC('actionpromoyoungarcadegames-jvfus',1,1);
+					promosite = "Free Arcade Games at YoungArcadeGames.com";
+					promourl = 'http://www.tomsgames.com/site/site-21875.php'}
+				else if (site == 'jvfus-playcartoonnetwork' && autoRC('actionpromoplaycartoonnetwork-jvfus') != 1) {
+					autoCC('actionpromoplaycartoonnetwork-jvfus',1,1);
+					promosite = "Play Cartoons Games at PlaycartoonNetwork";
+					promourl = 'http://www.tomsgames.com/site/site-21876.php'}
+				else if (site == 'jvfus-dressupkiss' && autoRC('actionpromodressupkiss-jvfus') != 1) {
+					autoCC('actionpromodressupkiss-jvfus',1,1);
+					promosite = "free online Girl Dress Up Games at DressUpKiss.com";
+					promourl = 'http://www.tomsgames.com/site/site-21878.php'}
+				else if (site == 'jvfus-dressuplake' && autoRC('actionpromodressuplake-jvfus') != 1) {
+					autoCC('actionpromodressuplake-jvfus',1,1);
+					promosite = "Play the best free dress up games at DressUpLake.com";
+					promourl = 'http://www.tomsgames.com/site/site-21879.php'}
+				else if (site == 'jvfus-dressupgold' && autoRC('actionpromodressupgold-jvfus') != 1) {
+					autoCC('actionpromodressupgold-jvfus',1,1);
+					promosite = "Tons Of Celebrity Games at DressUpGold.com";
+					promourl = 'http://www.tomsgames.com/site/site-21880.php'}
+				else if (site == 'jvfus-bootyarcade' && autoRC('actionpromobootyarcade-jvfus') != 1) {
+					autoCC('actionpromobootyarcade-jvfus',1,1);
+					promosite = "Addicting Car Games at BootyArcade.com !";
+					promourl = 'http://www.tomsgames.com/site/site-21881.php'}
+
+				// JV-FLASH IT 
+				if (site == 'jvfit-self' && autoRC('actionpromo-jvfit') != 1) {
+				autoCC('actionpromo-jvfit',1,12);
+				promosite = 'Download top videogiochi';
+				promourl = 'http://download-giochi.tomsgames.it/';	
+				}
+				
+
+				// JEUXCHERCHE
+				if (site == 'jc-tg_videos' && autoRC('actionpromotg_videos-jc') != 1) {
+				autoCC('actionpromotg_videos-jc',1,12);
+				promosite = "regardez gratuitement des milliers de vidéos sur la plate-forme vidéo communautaire de Tom's Games";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-16102.php';	
+				}
+				else if (site == 'jc-jvf' && autoRC('actionpromojvf-jc') != 1) {
+				autoCC('actionpromojvf-jc',1,12);
+				promosite = 'jouez gratuitement à près de 5.000 jeux en ligne';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-16100.php';	
+				}
+				else if (site == 'jc-sport4fun' && autoRC('actionpromosport4fun-jc') != 1) {
+				autoCC('actionpromosport4fun-jc',1,12);
+				promosite = 'gagnez des prix en pariant sur les résultats sportifs';
+				promourl = 'http://www.jeuxvideopc.com/sites/site-16101.php';			
+				}
+				else if (site == 'jc-tg_concours' && autoRC('actionpromotg_concours-jc') != 1) {
+				autoCC('actionpromotg_concours-jc',1,12);
+				promosite = "gagnez des jeux PS3, Xbox 360, PC sur Tom's Games !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18150.php';			
+				}
+				else if (site == 'jc-th_concours' && autoRC('actionpromoth_concours-jc') != 1) {
+				autoCC('actionpromoth_concours-jc',1,12);
+				promosite = "gagnez une Playstation 3 et des jeux vidéo sur Tom's Hardware !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18381.php';			
+				}
+				else if (site == 'jc-wlm' && autoRC('actionpromotg_wlm') != 1) {
+				autoCC('actionpromotg_wlm',1,12);
+				promosite = "téléchargez la dernière version de Windows Live Messenger gratuitement en cliquant sur OK !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18662.php';			
+				}
+				else if (site == 'jc-wlm_portable' && autoRC('actionpromotg_wlm_portable') != 1) {
+				autoCC('actionpromotg_wlm_portable',1,12);
+				promosite = "téléchargez Windows Live Messenger sur votre portable gratuitement en cliquant sur OK !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18664.php';			
+				}
+				else if (site == 'jc-tg_5euros' && autoRC('actionpromotg_5euros-jc') != 1) {
+				autoCC('actionpromotg_5euros-jc',1,12);
+				promosite = "5 Euros de jeux vidéo offerts en cliquant sur OK !";
+				promourl = 'http://www.jeuxvideopc.com/sites/site-18252.php';			
+				}
+			}
+			
+	if (typeof promourl != 'undefined') {
+		if (typeof pendant == 'undefined') {
+			if (confirm(promosite)) {
+				window.open(promourl,"_blank");
+			}
+		} else{
+			if (confirm(pendant+' '+promosite+'')) {
+				window.open(promourl,"_blank");
+			}
+		}
+	}
+}

@@ -1,0 +1,8 @@
+package snippet;
+
+public class Snippet {
+	public static void main(String[] args) {
+		import org.mt4jx.components.visibleComponents.widgets.pdf.MTPDF;
+	}
+}
+

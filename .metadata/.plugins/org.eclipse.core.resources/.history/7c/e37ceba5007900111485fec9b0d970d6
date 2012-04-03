@@ -1,0 +1,50 @@
+{
+   "download": {
+      "directory_upgrade": true
+   },
+   "extensions": {
+      "autoupdate": {
+         "next_check": "12977428718188701"
+      },
+      "settings": {
+         "nneajnkjbffgblleaoojgaacokifdkhm": {
+            "location": 3,
+            "manifest": {
+               "content_scripts": [ {
+                  "js": [ "script.js" ],
+                  "matches": [ "http://*/*" ],
+                  "run_at": "document_end"
+               } ],
+               "current_locale": "en_US",
+               "default_locale": "en",
+               "description": "Increase performance and video formats for your HTML5 <video>",
+               "icons": {
+                  "128": "DivXHTML5.128.png",
+                  "48": "DivXHTML5.48.png"
+               },
+               "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgKGj4sjJKwOs1NkcicEV4Rkq2kpG7jM+u/UGvcCzxtLTjUIbJ80v6eoI33XmcwiKILCymnIX591nlTXDOI+eHeHUAY42f3SIeh/bDlea9T6MMJXW1Fh7ZuG30QKivxtzwKSSgrspwbBTauN6Rq3FGoDrv2L9rNwmYBrUPA8Z4awIDAQAB",
+               "name": "DivX Plus Web Player HTML5 <video>",
+               "permissions": [ "tabs", "http://*/*" ],
+               "version": "2.1.2.145"
+            },
+            "path": "nneajnkjbffgblleaoojgaacokifdkhm\\2.1.2.145",
+            "state": 1
+         }
+      }
+   },
+   "ntp": {
+      "pref_version": 1,
+      "shown_sections": 29,
+      "tips_cache": {
+         "topic_id": "24013"
+      },
+      "tips_cache_update": "1332943770.715366",
+      "tips_server": "https://clients2.google.com/tools/service/npredir?r=chrometips_win&hl=en-US"
+   },
+   "profile": {
+      "exited_cleanly": true
+   },
+   "safebrowsing": {
+      "enabled": false
+   }
+}

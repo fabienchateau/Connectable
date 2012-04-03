@@ -1,0 +1,5 @@
+package org.mt4jx.components.visibleComponents.widgets;
+
+public class MTBrowserScene {
+
+}

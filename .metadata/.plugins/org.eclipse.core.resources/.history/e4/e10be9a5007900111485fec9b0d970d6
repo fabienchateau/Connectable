@@ -1,0 +1,17 @@
+{
+   "content_scripts": [ {
+      "js": [ "script.js" ],
+      "matches": [ "http://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_extdesc__",
+   "icons": {
+      "128": "DivXHTML5.128.png",
+      "48": "DivXHTML5.48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgKGj4sjJKwOs1NkcicEV4Rkq2kpG7jM+u/UGvcCzxtLTjUIbJ80v6eoI33XmcwiKILCymnIX591nlTXDOI+eHeHUAY42f3SIeh/bDlea9T6MMJXW1Fh7ZuG30QKivxtzwKSSgrspwbBTauN6Rq3FGoDrv2L9rNwmYBrUPA8Z4awIDAQAB",
+   "name": "__MSG_extname__",
+   "permissions": [ "tabs", "http://*/*" ],
+   "version": "2.1.2.145"
+}

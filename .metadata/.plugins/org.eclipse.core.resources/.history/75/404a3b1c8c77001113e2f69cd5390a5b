@@ -1,0 +1,20 @@
+package circularPictures;
+
+import org.mt4j.MTApplication;
+
+
+public class StartCircularPicturesScene extends MTApplication {
+	private static final long serialVersionUID = 1L;
+
+	public static void main(String args[]){
+		initialize();
+	}
+
+	@Override
+	public void startUp(){
+		//TODO create an example folder to test circularPicture
+		//this.addScene(new CircularPictureScene(this, "Circular Picture Scene", selectedFile));
+	}
+
+}
+

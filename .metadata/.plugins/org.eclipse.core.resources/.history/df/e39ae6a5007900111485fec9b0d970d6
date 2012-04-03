@@ -1,0 +1,10 @@
+{
+   "extdesc": {
+      "description": "extension description",
+      "message": "\u589E\u5F37 HTML5 <video> \u7684\u6548\u80FD\u8207\u8996\u8A0A\u683C\u5F0F"
+   },
+   "extname": {
+      "description": "extension name",
+      "message": "DivX Plus Web Player HTML5 <video>"
+   }
+}

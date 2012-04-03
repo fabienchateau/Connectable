@@ -1,0 +1,25 @@
+{
+   "download": {
+      "directory_upgrade": true
+   },
+   "extensions": {
+      "autoupdate": {
+         "next_check": "12977913688868000"
+      }
+   },
+   "ntp": {
+      "pref_version": 1,
+      "shown_sections": 29,
+      "tips_cache": {
+         "topic_id": "24013"
+      },
+      "tips_cache_update": "1333285101.122193",
+      "tips_server": "https://clients2.google.com/tools/service/npredir?r=chrometips_win&hl=en-US"
+   },
+   "profile": {
+      "exited_cleanly": true
+   },
+   "safebrowsing": {
+      "enabled": false
+   }
+}
