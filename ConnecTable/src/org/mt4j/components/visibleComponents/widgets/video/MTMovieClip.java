@@ -98,7 +98,7 @@ public class MTMovieClip extends MTRectangle implements ILassoable {
 	//TODO tap on slider -> amount settable?
 	//TODO delete button svg's from SVN?
 	//TODO (volume control icon)
-	//TODO (title bar)
+
 	
 	//TODO we actually would need some sort of command queue since this
 	//has to work asynchronously -> read from queue after the next frame

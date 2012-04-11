@@ -11,12 +11,14 @@ import org.mt4jx.components.visibleComponents.widgets.MTPdf;
 import org.mt4jx.components.visibleComponents.widgets.pdf.MTPDF;
 import org.mt4j.components.visibleComponents.widgets.buttons.MTImageButton;
 import org.mt4j.components.visibleComponents.widgets.video.MTMovieClip;
+import org.mt4j.input.gestureAction.DefaultXAction;
 import org.mt4j.input.gestureAction.InertiaCircuDragAction;
 import org.mt4j.input.inputProcessors.IGestureEventListener;
 import org.mt4j.input.inputProcessors.MTGestureEvent;
 import org.mt4j.input.inputProcessors.componentProcessors.dragProcessor.DragProcessor;
 import org.mt4j.input.inputProcessors.componentProcessors.tapProcessor.TapEvent;
 import org.mt4j.input.inputProcessors.componentProcessors.tapProcessor.TapProcessor;
+import org.mt4j.input.inputProcessors.componentProcessors.xProcessor.XProcessor;
 import org.mt4j.input.inputProcessors.globalProcessors.CursorTracer;
 import org.mt4j.sceneManagement.AbstractScene;
 import org.mt4j.util.MT4jSettings;
@@ -107,7 +109,9 @@ public class VignettesScene extends AbstractScene {
 			for (int i = 0; i < imagesNames.length ; i++) {
 				PImage image = app.loadImage(getPathToIcons() + imagesNames[i]);
 				MTImage r = new MTImage(image,app);
+				r.removeAllGestureEventListeners();
 				r.addGestureListener(DragProcessor.class, new InertiaCircuDragAction(app));
+				//r.addGestureListener(XProcessor.class, new DefaultXAction(r));
 				getCanvas().addChild(r);
 				r.setPositionGlobal(center);
 				r.scaleGlobal(0.2f, 0.2f, 1, center);

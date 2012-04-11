@@ -1197,7 +1197,7 @@ public class MTTextArea extends MTRectangle implements ITextInputListener, Compa
 //	 */
 //	public void snapToKeyboard(MTKeyboard mtKeyboard){
 //		//OLD WAY
-////		this.translate(new Vector3D(30, -(getFont().getFontAbsoluteHeight() * (getLineCount())) + getFont().getFontMaxDescent() - borderHeight, 0));
+//		this.translate(new Vector3D(30, -(getFont().getFontAbsoluteHeight() * (getLineCount())) + getFont().getFontMaxDescent() - borderHeight, 0));
 //		mtKeyboard.addChild(this);
 //		this.setPositionRelativeToParent(new Vector3D(40, -this.getHeightXY(TransformSpace.LOCAL)*0.5f));
 //	}

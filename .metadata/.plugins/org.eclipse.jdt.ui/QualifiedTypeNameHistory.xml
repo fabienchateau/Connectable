@@ -16,4 +16,8 @@
 <fullyQualifiedTypeName name="org.mt4jx.components.visibleComponents.widgets.MTPdf"/>
 <fullyQualifiedTypeName name="org.mt4j.util.font.FontManager"/>
 <fullyQualifiedTypeName name="org.mt4j.components.visibleComponents.widgets.MTTextArea"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.mt4j.input.inputProcessors.componentProcessors.tapProcessor.TapEvent"/>
+<fullyQualifiedTypeName name="org.mt4j.input.inputProcessors.componentProcessors.xProcessor.XProcessor"/>
+<fullyQualifiedTypeName name="org.mt4j.input.gestureAction.DefaultXAction"/>
 </qualifiedTypeNameHistroy>

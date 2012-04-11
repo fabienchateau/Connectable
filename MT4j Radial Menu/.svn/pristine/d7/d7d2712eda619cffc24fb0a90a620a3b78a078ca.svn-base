@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/Log4j-1.2.15/log4j-1.2.15.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/Perf4j-0.9.13/perf4j-0.9.13.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MT4j"/>
+	<classpathentry kind="lib" path="/MT4j/mt4jLibs/core.jar"/>
+	<classpathentry kind="lib" path="/MT4j/mt4jLibs/jogl/jogl.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MT4j Commons"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -8,4 +8,5 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="ShellCirculaire.StartShellCirculaire"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ConnecTable"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx1024m"/>
 </launchConfiguration>

@@ -38,13 +38,10 @@
 		<item value="false" key="CASE_SENSITIVE"/>
 		<item value="false" key="REG_EX_SEARCH"/>
 		<item value="false" key="SEARCH_DERIVED"/>
-		<item value="6" key="HISTORY_SIZE"/>
-		<section name="EXTENSIONS">
-			<item value="*.java" key="0"/>
-		</section>
-		<section name="HISTORY2">
+		<item value="12" key="HISTORY_SIZE"/>
+		<section name="HISTORY11">
 			<item value="false" key="isRegExSearch"/>
-			<item value="imgcache" key="textPattern"/>
+			<item value="closeButton64.png" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -53,7 +50,10 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY3">
+		<section name="EXTENSIONS">
+			<item value="*.java" key="0"/>
+		</section>
+		<section name="HISTORY10">
 			<item value="false" key="isRegExSearch"/>
 			<item value="MT4J.gif" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -64,9 +64,9 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY0">
+		<section name="HISTORY9">
 			<item value="false" key="isRegExSearch"/>
-			<item value="MTRectangle" key="textPattern"/>
+			<item value="imgcache" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -75,7 +75,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY1">
+		<section name="HISTORY8">
 			<item value="false" key="isRegExSearch"/>
 			<item value="WaterSceneExportObf" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -88,7 +88,7 @@
 		</section>
 		<section name="HISTORY5">
 			<item value="false" key="isRegExSearch"/>
-			<item value="PApplet" key="textPattern"/>
+			<item value="org.mt4j.components.visibleComponents.shapes.AbstractShape" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -99,7 +99,73 @@
 		</section>
 		<section name="HISTORY4">
 			<item value="false" key="isRegExSearch"/>
-			<item value="closeButton64.png" key="textPattern"/>
+			<item value="AbstractShape" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item value="false" key="isRegExSearch"/>
+			<item value="MTRectangle" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item value="false" key="isRegExSearch"/>
+			<item value="MTCSSStylableShape" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY2">
+			<item value="false" key="isRegExSearch"/>
+			<item value="extends MTCSSStylableShape" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
+			<item value="false" key="isRegExSearch"/>
+			<item value="drawPureGL" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY0">
+			<item value="false" key="isRegExSearch"/>
+			<item value="MTSceneMenu" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item value="false" key="isRegExSearch"/>
+			<item value="TTFontFactory" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">

@@ -35,31 +35,29 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTShellCirculaire.java" partName="MTShellCirculaire.java" path="C:/Documents and Settings/VirtualSens/Mes documents/Github/Connectable/ConnecTable/src/ShellCirculaire/MTShellCirculaire.java" title="MTShellCirculaire.java" tooltip="ConnecTable/src/ShellCirculaire/MTShellCirculaire.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ConnecTable/src/ShellCirculaire/MTShellCirculaire.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="39" selectionOffset="2521" selectionTopPixel="120"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTMovieClip.java" partName="MTMovieClip.java" path="C:/Documents and Settings/VirtualSens/Mes documents/Github/Connectable/ConnecTable/src/org/mt4j/components/visibleComponents/widgets/video/MTMovieClip.java" title="MTMovieClip.java" tooltip="ConnecTable/src/org/mt4j/components/visibleComponents/widgets/video/MTMovieClip.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ConnecTable/src/org/mt4j/components/visibleComponents/widgets/video/MTMovieClip.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4454" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTProgressBar.java" partName="MTProgressBar.java" path="C:/Documents and Settings/VirtualSens/Mes documents/Github/Connectable/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/MTProgressBar.java" title="MTProgressBar.java" tooltip="mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/MTProgressBar.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/MTProgressBar.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10341" selectionTopPixel="5033"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
+<view IMemento.internal.id="org.eclipse.jdt.ui.JavaSearchResultPage" org.eclipse.jdt.search.resultpage.grouping="3" org.eclipse.jdt.search.resultpage.limit="1000" org.eclipse.jdt.search.resultpage.limit_enabled="TRUE" org.eclipse.jdt.search.resultpage.sorting="1" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="2" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
-<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
-<view IMemento.internal.id="org.eclipse.jdt.ui.JavaSearchResultPage" org.eclipse.jdt.search.resultpage.grouping="3" org.eclipse.jdt.search.resultpage.limit="1000" org.eclipse.jdt.search.resultpage.limit_enabled="TRUE" org.eclipse.jdt.search.resultpage.sorting="1" org.eclipse.search.lastActivation="2" org.eclipse.search.resultpage.layout="2"/>
 </viewState>
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="478"/>
+<expanded>
+<category IMemento.internal.id="Warnings (100 of 529 items)"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="580"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -104,7 +102,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -183,8 +181,8 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.33859822" ratioLeft="343" ratioRight="670" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.7496136" ratioLeft="485" ratioRight="162" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.37982664" ratioLeft="482" ratioRight="787" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.7063492" ratioLeft="623" ratioRight="259" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
@@ -218,166 +216,176 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/Vignettes/VignettesScene.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mt4j-desktop/extensions/org/mt4jx/input/inputProcessors/componentProcessors/depthProcessor/DepthGestureEvent.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/IprogressInfoProvider.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/MT4j/ToDo.txt"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/ShellCirculaire/MTShellCirculaire.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/menu/MTSlideImage.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/pdf/PDFRenderer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/MTPdf.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/MTPdf.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/models3D/Models3DScene.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/Vignettes/VignettesScene.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/models3D/StartModelExample.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/menu/MTSceneMenu.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/ShellCirculaire/StartShellCirculaire.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/ShellCirculaire/MTShellCirculaire.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mt4j-desktop/src/org/mt4j/components/visibleComponents/widgets/MTSvg.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/org/mt4j/components/visibleComponents/widgets/video/MTMovieClip.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/gov/pnnl/components/visibleComponents/widgets/radialMenu/MTRadialMenu.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/gov/pnnl/components/visibleComponents/widgets/radialMenu/MTRadialPoly.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/MT4j Commons/src/org/mt4jx/components/visibleComponents/shapes/widgets/imageinfo/MTInfoPanel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/models3D/Models3DScene.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/models3D/StartModelExample.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/Vignettes/VignettesScene.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/IprogressInfoProvider.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/MTProgressBar.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mt4j-desktop/examples/advanced/modestMapsMT/MapsScene.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mt4j-desktop/extensions/org/mt4jx/input/inputProcessors/componentProcessors/depthProcessor/DepthGestureEvent.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/MT4j ModestMap/examples/mapsExample/MTMapsExample.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/menu/MTSceneMenu.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ConnecTable/src/ShellCirculaire/StartShellCirculaire.java"/>
 </editors>
-<item historyLabel="MTPdf.java" index="4">
-<position/>
+<item historyLabel="IprogressInfoProvider.java" index="2">
+<position info="not_deleted" x="1255" y="0"/>
 </item>
-<item historyLabel="MTSlideImage.java" index="2">
-<position info="not_deleted" x="2090" y="0"/>
+<item historyLabel="DepthGestureEvent.java" index="1">
+<position info="not_deleted" x="812" y="0"/>
 </item>
-<item historyLabel="MTPdf.java" index="4">
-<position/>
+<item historyLabel="ToDo.txt" index="3">
+<position info="not_deleted" x="9506" y="0"/>
 </item>
-<item historyLabel="MTSlideImage.java" index="2">
-<position info="not_deleted" x="2090" y="0"/>
+<item historyLabel="DepthGestureEvent.java" index="1">
+<position info="not_deleted" x="812" y="0"/>
 </item>
-<item historyLabel="MTPdf.java" index="4">
-<position/>
-</item>
-<item historyLabel="MTSlideImage.java" index="2">
-<position info="not_deleted" x="2090" y="0"/>
-</item>
-<item historyLabel="MTPdf.java" index="4">
-<position/>
-</item>
-<item historyLabel="MTSlideImage.java" index="2">
-<position info="not_deleted" x="3910" y="246"/>
-</item>
-<item historyLabel="MTPdf.java" index="4">
-<position info="not_deleted" x="4929" y="0"/>
-</item>
-<item historyLabel="PDFRenderer.java" index="3">
-<position info="not_deleted" x="1743" y="25"/>
-</item>
-<item historyLabel="MTSlideImage.java" index="2">
-<position info="not_deleted" x="4513" y="256"/>
-</item>
-<item historyLabel="MTPdf.java" index="4">
-<position info="not_deleted" x="4929" y="0"/>
-</item>
-<item historyLabel="MTSlideImage.java" index="2">
-<position info="not_deleted" x="4513" y="256"/>
-</item>
-<item historyLabel="MTPdf.java" index="5">
-<position info="not_deleted" x="1822" y="0"/>
-</item>
-<item historyLabel="MTSlideImage.java" index="2">
-<position info="not_deleted" x="4741" y="0"/>
-</item>
-<item historyLabel="VignettesScene.java" index="0">
-<position info="not_deleted" x="5252" y="0"/>
-</item>
-<item historyLabel="MTSlideImage.java" index="2">
-<position info="not_deleted" x="4741" y="0"/>
-</item>
-<item historyLabel="VignettesScene.java" index="0">
-<position info="not_deleted" x="5897" y="0"/>
-</item>
-<item historyLabel="MTShellCirculaire.java" index="1">
-<position info="not_deleted" x="12323" y="0"/>
-</item>
-<item historyLabel="Models3DScene.java" index="6">
-<position info="not_deleted" x="4036" y="0"/>
-</item>
-<item historyLabel="MTShellCirculaire.java" index="1">
-<position info="not_deleted" x="6825" y="0"/>
-</item>
-<item historyLabel="VignettesScene.java" index="0">
-<position info="not_deleted" x="1802" y="0"/>
-</item>
-<item historyLabel="MTPdf.java" index="5">
+<item historyLabel="MTShellCirculaire.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MTPdf.java" index="5">
-<position info="not_deleted" x="1600" y="0"/>
+<item historyLabel="VignettesScene.java" index="0">
+<position info="not_deleted" x="4362" y="0"/>
 </item>
-<item historyLabel="MTPdf.java" index="5">
-<position info="not_deleted" x="4342" y="0"/>
-</item>
-<item historyLabel="VignettesScene.java" index="7">
-<position info="not_deleted" x="5349" y="5"/>
-</item>
-<item historyLabel="MTPdf.java" index="5">
-<position info="not_deleted" x="193" y="0"/>
-</item>
-<item historyLabel="MTShellCirculaire.java" index="8">
+<item historyLabel="Models3DScene.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MTShellCirculaire.java" index="8">
-<position info="not_deleted" x="12269" y="0"/>
+<item historyLabel="VignettesScene.java" index="0">
+<position info="not_deleted" x="4362" y="0"/>
 </item>
-<item historyLabel="MTSvg.java" index="9">
+<item historyLabel="StartModelExample.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MTShellCirculaire.java" index="4">
+<position info="not_deleted" x="5740" y="0"/>
+</item>
+<item historyLabel="VignettesScene.java" index="0">
+<position info="not_deleted" x="6321" y="0"/>
+</item>
+<item historyLabel="MTShellCirculaire.java" index="4">
+<position info="not_deleted" x="5188" y="0"/>
+</item>
+<item historyLabel="Models3DScene.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MTSceneMenu.java" index="7">
+<position info="not_deleted" x="2525" y="11"/>
+</item>
+<item historyLabel="StartShellCirculaire.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MTShellCirculaire.java" index="9">
+<position info="not_deleted" x="5188" y="0"/>
+</item>
+<item historyLabel="MTShellCirculaire.java" index="9">
+<position info="not_deleted" x="2877" y="21"/>
+</item>
+<item historyLabel="MTShellCirculaire.java" index="9">
+<position info="not_deleted" x="3107" y="0"/>
+</item>
+<item historyLabel="MTShellCirculaire.java" index="9">
+<position info="not_deleted" x="2877" y="21"/>
+</item>
+<item historyLabel="MTRadialMenu.java" index="10">
+<position info="not_deleted" x="4" y="0"/>
+</item>
+<item historyLabel="MTRadialPoly.java" index="11">
+<position info="not_deleted" x="4" y="0"/>
+</item>
+<item historyLabel="MTShellCirculaire.java" index="9">
+<position info="not_deleted" x="3139" y="0"/>
+</item>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
+</item>
+<item historyLabel="MTShellCirculaire.java" index="9">
+<position info="not_deleted" x="3139" y="0"/>
+</item>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
+</item>
+<item historyLabel="Models3DScene.java" index="13">
+<position info="not_deleted" x="3676" y="0"/>
+</item>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
+</item>
+<item historyLabel="StartModelExample.java" index="14">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
+</item>
+<item historyLabel="VignettesScene.java" index="15">
+<position info="not_deleted" x="6321" y="0"/>
+</item>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
+</item>
+<item historyLabel="IprogressInfoProvider.java" index="16">
 <position info="not_deleted" x="74" y="0"/>
 </item>
-<item historyLabel="MTShellCirculaire.java" index="8">
-<position info="not_deleted" x="12151" y="483"/>
+<item historyLabel="IprogressInfoProvider.java" index="16">
+<position info="not_deleted" x="1255" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
+</item>
+<item historyLabel="MTProgressBar.java" index="17">
 <position info="not_deleted" x="74" y="0"/>
 </item>
-<item historyLabel="MTShellCirculaire.java" index="8">
-<position info="not_deleted" x="3891" y="81"/>
+<item historyLabel="MTProgressBar.java" index="17">
+<position info="not_deleted" x="2133" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position/>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
 </item>
-<item historyLabel="MTShellCirculaire.java" index="8">
-<position info="not_deleted" x="3891" y="81"/>
+<item historyLabel="MapsScene.java" index="18">
+<position info="not_deleted" x="74" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position/>
+<item historyLabel="MapsScene.java" index="18">
+<position info="not_deleted" x="6966" y="0"/>
 </item>
-<item historyLabel="MTShellCirculaire.java" index="8">
-<position info="not_deleted" x="2522" y="38"/>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position/>
+<item historyLabel="DepthGestureEvent.java" index="19">
+<position info="not_deleted" x="812" y="0"/>
 </item>
-<item historyLabel="MTShellCirculaire.java" index="8">
-<position info="not_deleted" x="2560" y="0"/>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8950" y="0"/>
+<item historyLabel="MTMapsExample.java" index="20"/>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
 </item>
-<item historyLabel="MTShellCirculaire.java" index="8">
-<position info="not_deleted" x="2521" y="39"/>
+<item historyLabel="MTSceneMenu.java" index="21">
+<position info="not_deleted" x="74" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8950" y="0"/>
+<item historyLabel="MTSceneMenu.java" index="21">
+<position info="not_deleted" x="2525" y="11"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position/>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8734" y="0"/>
+<item historyLabel="StartShellCirculaire.java" index="22">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8904" y="0"/>
+<item historyLabel="MTInfoPanel.java" index="12">
+<position info="not_deleted" x="1097" y="0"/>
 </item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8904" y="0"/>
-</item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8877" y="0"/>
-</item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8737" y="0"/>
-</item>
-<item historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8904" y="0"/>
-</item>
-<item active="true" historyLabel="MTMovieClip.java" index="10">
-<position info="not_deleted" x="8905" y="0"/>
+<item active="true" historyLabel="MTProgressBar.java" index="17">
+<position info="not_deleted" x="74" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -396,50 +404,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTMovieClip.java" tooltip="ConnecTable/src/org/mt4j/components/visibleComponents/widgets/video/MTMovieClip.java">
-<persistable path="/ConnecTable/src/org/mt4j/components/visibleComponents/widgets/video/MTMovieClip.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTProgressBar.java" tooltip="mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/MTProgressBar.java">
+<persistable path="/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/MTProgressBar.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTSvg.java" tooltip="mt4j-desktop/src/org/mt4j/components/visibleComponents/widgets/MTSvg.java">
-<persistable path="/mt4j-desktop/src/org/mt4j/components/visibleComponents/widgets/MTSvg.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTInfoPanel.java" tooltip="MT4j Commons/src/org/mt4jx/components/visibleComponents/shapes/widgets/imageinfo/MTInfoPanel.java">
+<persistable path="/MT4j Commons/src/org/mt4jx/components/visibleComponents/shapes/widgets/imageinfo/MTInfoPanel.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTShellCirculaire.java" tooltip="ConnecTable/src/ShellCirculaire/MTShellCirculaire.java">
-<persistable path="/ConnecTable/src/ShellCirculaire/MTShellCirculaire.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTRadialPoly.java" tooltip="ConnecTable/src/gov/pnnl/components/visibleComponents/widgets/radialMenu/MTRadialPoly.java">
+<persistable path="/ConnecTable/src/gov/pnnl/components/visibleComponents/widgets/radialMenu/MTRadialPoly.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTPdf.java" tooltip="ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/MTPdf.java">
-<persistable path="/ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/MTPdf.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTRadialMenu.java" tooltip="ConnecTable/src/gov/pnnl/components/visibleComponents/widgets/radialMenu/MTRadialMenu.java">
+<persistable path="/ConnecTable/src/gov/pnnl/components/visibleComponents/widgets/radialMenu/MTRadialMenu.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTComponent.java" tooltip="mt4j-core/src/org/mt4j/components/MTComponent.java">
-<persistable path="/mt4j-core/src/org/mt4j/components/MTComponent.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTPdf.java" tooltip="mt4j-core/src/org/mt4j/components/visibleComponents/widgets/MTPdf.java">
-<persistable path="/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/MTPdf.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AbstractShape.java" tooltip="mt4j-core/src/org/mt4j/components/visibleComponents/shapes/AbstractShape.java">
-<persistable path="/mt4j-core/src/org/mt4j/components/visibleComponents/shapes/AbstractShape.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PDFRenderer.java" tooltip="ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/pdf/PDFRenderer.java">
-<persistable path="/ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/pdf/PDFRenderer.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CachedPDFPageLoader.java" tooltip="ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/pdf/CachedPDFPageLoader.java">
-<persistable path="/ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/pdf/CachedPDFPageLoader.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTPDF.java" tooltip="ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/pdf/MTPDF.java">
-<persistable path="/ConnecTable/src/org/mt4jx/components/visibleComponents/widgets/pdf/MTPDF.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTSlideImage.java" tooltip="ConnecTable/src/menu/MTSlideImage.java">
-<persistable path="/ConnecTable/src/menu/MTSlideImage.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VignettesScene.java" tooltip="ConnecTable/src/Vignettes/VignettesScene.java">
-<persistable path="/ConnecTable/src/Vignettes/VignettesScene.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTRectangle.java" tooltip="mt4j-core/src/org/mt4j/components/visibleComponents/shapes/MTRectangle.java">
-<persistable path="/mt4j-core/src/org/mt4j/components/visibleComponents/shapes/MTRectangle.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StartShellCirculaire.java" tooltip="ConnecTable/src/ShellCirculaire/StartShellCirculaire.java">
+<persistable path="/ConnecTable/src/ShellCirculaire/StartShellCirculaire.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTSceneMenu.java" tooltip="ConnecTable/src/menu/MTSceneMenu.java">
 <persistable path="/ConnecTable/src/menu/MTSceneMenu.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Models3DScene.java" tooltip="ConnecTable/src/models3D/Models3DScene.java">
 <persistable path="/ConnecTable/src/models3D/Models3DScene.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StartModelExample.java" tooltip="ConnecTable/src/models3D/StartModelExample.java">
+<persistable path="/ConnecTable/src/models3D/StartModelExample.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VignettesScene.java" tooltip="ConnecTable/src/Vignettes/VignettesScene.java">
+<persistable path="/ConnecTable/src/Vignettes/VignettesScene.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTShellCirculaire.java" tooltip="ConnecTable/src/ShellCirculaire/MTShellCirculaire.java">
+<persistable path="/ConnecTable/src/ShellCirculaire/MTShellCirculaire.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IprogressInfoProvider.java" tooltip="mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/IprogressInfoProvider.java">
+<persistable path="/mt4j-core/src/org/mt4j/components/visibleComponents/widgets/progressBar/IprogressInfoProvider.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MapsScene.java" tooltip="mt4j-desktop/examples/advanced/modestMapsMT/MapsScene.java">
+<persistable path="/mt4j-desktop/examples/advanced/modestMapsMT/MapsScene.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DepthGestureEvent.java" tooltip="mt4j-desktop/extensions/org/mt4jx/input/inputProcessors/componentProcessors/depthProcessor/DepthGestureEvent.java">
+<persistable path="/mt4j-desktop/extensions/org/mt4jx/input/inputProcessors/componentProcessors/depthProcessor/DepthGestureEvent.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MTMapsExample.java" tooltip="MT4j ModestMap/examples/mapsExample/MTMapsExample.java">
+<persistable path="/MT4j ModestMap/examples/mapsExample/MTMapsExample.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OpenStreetMaps.java" tooltip="MT4j ModestMap/src/com/modestmaps/providers/OpenStreetMaps.java">
+<persistable path="/MT4j ModestMap/src/com/modestmaps/providers/OpenStreetMaps.java"/>
 </file>
 </mruList>
 </workbench>

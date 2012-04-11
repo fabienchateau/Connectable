@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;MT4j Commons&apos;&#x0D;&#x0A;- Original project: &apos;MT4j Commons&apos;&#x0D;&#x0A;- Original element: &apos;MT4j Commons/src/org.mt4j.components.visibleComponents.widgets&apos;" description="Delete element" element1="/src&lt;org.mt4j.components.visibleComponents.widgets" element2="/src&lt;org.mt4j.components.visibleComponents" element3="/src&lt;org.mt4j.components" element4="/src&lt;org.mt4j" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1334060973359" subPackages="false" version="1.0"/>
+</session>

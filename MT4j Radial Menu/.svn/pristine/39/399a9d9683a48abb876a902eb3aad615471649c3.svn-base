@@ -1,0 +1,7 @@
+TODO
+
+- Refactor MTRadialMenu and RTRadialPoly to use MTArchedRectangle
+- Figure out how to resolve geometry issues when using MTArchedRectangle with MTRadialMenu
+- Convert all fixed adjustment factors to use generalized equations
+
+- Add support in default MT4j scaling gestures to allow minimum and maximum scale sizes to be set

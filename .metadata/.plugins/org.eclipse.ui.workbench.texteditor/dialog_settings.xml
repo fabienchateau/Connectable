@@ -2,8 +2,8 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
-		<item value="163" key="DIALOG_Y_ORIGIN"/>
-		<item value="59" key="DIALOG_X_ORIGIN"/>
+		<item value="568" key="DIALOG_Y_ORIGIN"/>
+		<item value="105" key="DIALOG_X_ORIGIN"/>
 		<item value="362" key="DIALOG_HEIGHT"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="google" key="selection"/>
+		<item value="snapToKeyboard" key="selection"/>
 		<list key="findhistory">
-			<item value="google"/>
-			<item value="font"/>
-			<item value="arial"/>
-			<item value="gesture"/>
-			<item value="keyboard"/>
-			<item value="inerti"/>
-			<item value="water"/>
-			<item value="drawing"/>
+			<item value="snapToKeyboard"/>
+			<item value="addActionListener"/>
+			<item value="drawPureGl"/>
+			<item value="drawPureGl(GL gl)"/>
+			<item value="drawpuregl"/>
+			<item value="drawpurgl"/>
+			<item value="111"/>
+			<item value="keyinfo"/>
 		</list>
 		<list key="replacehistory">
 		</list>
